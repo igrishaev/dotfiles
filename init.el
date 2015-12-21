@@ -7,29 +7,22 @@
 (setenv "PYTHONDONTWRITEBYTECODE" "1")
 
 ;; imenu
-(require 'imenu)
 
 ;; ido
-(require 'ido)
 (ido-mode t)
 
 ;; slime
-(require 'slime)
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 (setq slime-net-coding-system 'utf-8-unix)
 
 ;; autocomplete
-(require 'auto-complete)
-(require 'auto-complete-config)
 (ac-config-default)
 (global-auto-complete-mode t)
 
 ;; nyan
-(require 'nyan-mode)
 (nyan-mode t)
 
 ;; helm
-(require 'helm)
 (helm-mode 1)
 (global-set-key (kbd "<C-return>") 'helm-imenu)
 (global-set-key (kbd "<M-return>") 'helm-etags-select)
@@ -65,7 +58,6 @@
 (add-hook 'python-mode-hook #'hl-todos)
 
 ;; jedi
-(require 'jedi)
 (setq jedi:complete-on-dot t)
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:server-args
@@ -77,19 +69,15 @@
 ;; (add-hook 'python-mode-hook (lambda () (add-to-list 'write-file-functions 'python-check)))
 
 ;; flycheck
-(require 'flycheck)
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(require 'multi-term)
-(setq multi-term-program "/bin/zsh")
+(setq multi-term-program "/bin/bash")
 
 ;; theme
-(require 'color-theme-solarized)
-(load-theme 'solarized-light t)
+(load-theme 'solarized t)
 (set-face-attribute 'default nil :height 140)
 
 ;; move text up/down
-(require 'move-text)
 (global-set-key [s-up] 'move-text-up)
 (global-set-key [s-down] 'move-text-down)
 
@@ -112,7 +100,6 @@
 (global-set-key [s-left] 'my-unindent-region)
 
 ;; clojure
-(require 'cider)
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'cider-mode-hook #'highlight-parentheses-mode)
