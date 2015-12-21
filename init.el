@@ -24,10 +24,11 @@
 
 ;; helm
 (helm-mode 1)
-(global-set-key (kbd "<C-return>") 'helm-imenu)
+(global-set-key (kbd "C-x i") 'helm-imenu)
 (global-set-key (kbd "<M-return>") 'helm-etags-select)
 (global-set-key (kbd "<s-return>") 'helm-find-files)
 (global-set-key (kbd "<C-M-return>") 'select-tags-table)
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; html
 (add-hook 'html-mode-hook
@@ -74,7 +75,7 @@
 (setq multi-term-program "/bin/bash")
 
 ;; theme
-(load-theme 'solarized t)
+;; (load-theme 'solarized t)
 (set-face-attribute 'default nil :height 140)
 
 ;; move text up/down
