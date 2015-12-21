@@ -1,3 +1,8 @@
+;; cask
+(package-initialize)
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 ;; envs
 (setenv "PYTHONDONTWRITEBYTECODE" "1")
 
