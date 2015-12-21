@@ -1,5 +1,6 @@
 (source gnu)
 (source melpa)
+(source marmalade)
 
 (depends-on "anaconda-mode")
 (depends-on "auto-complete")
