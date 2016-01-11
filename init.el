@@ -3,11 +3,6 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
-;; envs
-(setenv "PYTHONDONTWRITEBYTECODE" "1")
-
-;; imenu
-
 ;; ido
 (ido-mode t)
 
@@ -35,6 +30,7 @@
   (lambda ()
     (set (make-local-variable 'sgml-basic-offset) 4)))
 
+;; tags
 (defun tags-create (dir-name)
   (interactive "DDirectory: ")
   (let ((path (directory-file-name dir-name)))
@@ -42,37 +38,42 @@
      (format "ctags -e -R -f %s/TAGS %s" path path))
     (visit-tags-table (format "%s/TAGS" path))))
 
-;; python
-(setq python-check-command "flake8 --max-line-length=80 --count")
-
-;; (add-hook 'python-mode-hook #'highlight-parentheses-mode)
-;; (add-hook 'python-mode-hook #'outline-minor-mode)
-;; (add-hook 'python-mode-hook (lambda () (hl-line-mode t)))
-
+;; highlight
 (defun hl-trace ()
   (highlight-lines-matching-regexp "set_trace" 'hi-red-b))
 
 (defun hl-todos ()
   (highlight-lines-matching-regexp "todo|TODO|Todo" 'hi-yellow-b))
 
+;; markdown
+(add-hook 'markdown-mode-hook #'auto-fill-mode)
+
+;;raml
+(add-to-list 'auto-mode-alist '("\\.raml\\'" . yaml-mode))
+
+;; python
+(setenv "PYTHONDONTWRITEBYTECODE" "1")
+(setq python-check-command "flake8 --max-line-length=80 --count")
+(add-hook 'cider-mode-hook (lambda () (show-paren-mode 1)))
+;; (add-hook 'python-mode-hook #'highlight-parentheses-mode)
+(add-hook 'python-mode-hook #'outline-minor-mode)
+(add-hook 'python-mode-hook #'anaconda-mode)
+;; (add-hook 'python-mode-hook (lambda () (hl-line-mode t)))
 (add-hook 'python-mode-hook #'hl-trace)
 (add-hook 'python-mode-hook #'hl-todos)
 
 ;; jedi
-(setq jedi:complete-on-dot t)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:server-args
-      '("--virtual-env" "deleted"))
-(global-set-key (kbd "<C-c .>") 'jedi:goto-definition)
+;; (setq jedi:complete-on-dot t)
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:server-args
+;;       '("--virtual-env" "deleted"))
+;; (global-set-key (kbd "<C-c .>") 'jedi:goto-definition)
 
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-;; (add-hook 'python-mode-hook (lambda () (add-to-list 'write-file-functions 'python-check)))
 
 ;; flycheck
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
-
-(setq multi-term-program "/bin/bash")
 
 ;; theme
 ;; (load-theme 'solarized t)
@@ -105,7 +106,6 @@
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'cider-mode-hook #'highlight-parentheses-mode)
 (add-hook 'cider-mode-hook #'imenu-add-menubar-index)
-(add-hook 'cider-mode-hook (lambda () (show-paren-mode 1)))
 
 ;; sql
 (add-hook 'sql-interactive-mode-hook
@@ -153,6 +153,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
+(setq multi-term-program "/bin/bash")
 (global-set-key (kbd "s-d") 'delete-backward-char)
 (put 'downcase-region 'disabled nil)
 
