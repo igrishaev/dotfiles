@@ -13,6 +13,7 @@
 ;; autocomplete
 (ac-config-default)
 (global-auto-complete-mode t)
+(setq ac-disable-faces nil)
 
 ;; nyan
 (nyan-mode t)
