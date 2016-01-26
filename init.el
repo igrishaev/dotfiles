@@ -26,6 +26,11 @@
 (global-set-key (kbd "<C-M-return>") 'select-tags-table)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+;; simpleclip
+(global-set-key (kbd "C-c c") 'simpleclip-copy)
+(global-set-key (kbd "C-c v") 'simpleclip-paste)
+(global-set-key (kbd "C-c x") 'simpleclip-cut)
+
 ;; html
 (add-hook 'html-mode-hook
   (lambda ()
