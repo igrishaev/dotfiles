@@ -50,3 +50,4 @@
 (depends-on "wrap-region")
 (depends-on "yaml-mode")
 (depends-on "go-mode")
+(depends-on "htmlize")
