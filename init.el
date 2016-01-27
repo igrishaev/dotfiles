@@ -146,6 +146,7 @@
 (show-paren-mode 1)
 ;; (setq show-paren-style 'parenthesis)
 ;; (setq show-paren-style 'expression)
+(setq confirm-kill-emacs 'y-or-n-p)
 (blink-cursor-mode 0)
 (tool-bar-mode -1)
 (global-linum-mode t)
