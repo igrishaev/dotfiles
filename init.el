@@ -136,11 +136,7 @@
 (defalias 'uhl 'unhighlight-regexp)
 (defalias 'oc 'occur)
 (defalias 'ms 'magit-status)
-(defalias 'mb 'magit-blame-mode)
-(defalias 'mc 'magit-checkout)
-(defalias 'mpl 'magit-pull)
-(defalias 'mps 'magit-pull)
-(defalias 'mcb 'magit-create-branch)
+(defalias 'blame 'magit-blame)
 
 ;; common
 (show-paren-mode 1)
