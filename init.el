@@ -159,6 +159,7 @@
 (setq multi-term-program "/bin/bash")
 (global-set-key (kbd "s-d") 'delete-backward-char)
 (put 'downcase-region 'disabled nil)
+(menu-bar-mode 0)
 
 ;; settings
 (custom-set-variables
