@@ -52,3 +52,4 @@
 (depends-on "go-mode")
 (depends-on "htmlize")
 (depends-on "simpleclip")
+(depends-on "org-reveal")
