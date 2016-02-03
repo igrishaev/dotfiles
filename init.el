@@ -160,6 +160,7 @@
 (global-set-key (kbd "s-d") 'delete-backward-char)
 (put 'downcase-region 'disabled nil)
 (menu-bar-mode 0)
+(global-set-key (kbd "C-x t") 'org-timeline)
 
 ;; settings
 (custom-set-variables
