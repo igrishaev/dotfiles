@@ -82,8 +82,7 @@
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; theme
-;; (load-theme 'solarized t)
-(set-face-attribute 'default nil :height 140)
+(load-theme 'light-blue t)
 
 ;; move text up/down
 (global-set-key [s-up] 'move-text-up)
