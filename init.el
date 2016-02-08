@@ -164,6 +164,7 @@
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-agenda-skip-scheduled-if-done t)
 (global-set-key (kbd "C-c t") 'org-timeline)
+(setq calendar-week-start-day 1)
 
 ;; settings
 (custom-set-variables
