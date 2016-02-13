@@ -166,6 +166,12 @@
 (global-set-key (kbd "C-c t") 'org-timeline)
 (setq calendar-week-start-day 1)
 
+;; mail
+(setq user-full-name "Ivan Grishaev")
+(setq user-mail-address "ivan@grishaev.me")
+(setq smtpmail-default-smtp-server "smtp.gmail.com")
+(setq message-send-mail-function 'smtpmail-send-it)
+
 ;; settings
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
