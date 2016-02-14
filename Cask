@@ -53,3 +53,4 @@
 (depends-on "htmlize")
 (depends-on "simpleclip")
 (depends-on "org-reveal")
+(depends-on "bbdb")

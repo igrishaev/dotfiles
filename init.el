@@ -173,6 +173,14 @@
 (setq message-send-mail-function 'smtpmail-send-it)
 (global-set-key (kbd "C-c a") 'mail-abbrev-insert-alias)
 
+;; bbdb
+(require 'bbdb)
+(bbdb-initialize)
+(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+(add-hook 'gnus-startup-hook 'bbdb-insinuate-message)
+(bbdb-mua-auto-update-init 'gnus 'message)
+(setq bbdb-update-records-p 'create)
+
 ;; settings
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
