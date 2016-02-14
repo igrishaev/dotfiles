@@ -171,6 +171,7 @@
 (setq user-mail-address "ivan@grishaev.me")
 (setq smtpmail-default-smtp-server "smtp.gmail.com")
 (setq message-send-mail-function 'smtpmail-send-it)
+(global-set-key (kbd "C-c a") 'mail-abbrev-insert-alias)
 
 ;; settings
 (custom-set-variables
