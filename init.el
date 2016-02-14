@@ -174,12 +174,29 @@
 (global-set-key (kbd "C-c a") 'mail-abbrev-insert-alias)
 
 ;; bbdb
-(require 'bbdb)
-(bbdb-initialize)
+(bbdb-initialize 'gnus 'message 'sc 'w3)
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-message)
-(bbdb-mua-auto-update-init 'gnus 'message)
+(bbdb-mua-auto-update-init 'gnus 'message 'sc 'w3)
+(setq bbdb-offer-save nil)
+(setq bbdb/mail-auto-create-p t)
+(setq bbdb/news-auto-create-p t)
+(setq bbdb/srv-auto-create-p t)
 (setq bbdb-update-records-p 'create)
+;-
+(setq bbdb-file-coding-system 'utf-8)
+(setq bbdb-use-pop-up nil)
+(setq bbdb-complete-name-allow-cycling t)
+(setq bbdb-canonicalize-redundant-nets-p t)
+(setq bbdb-offer-save 1)
+(setq bbdb-display-layout 'multi-line)
+(setq bbdb-pop-up-target-lines 1)
+(setq bbdb-north-american-phone-numbers-p nil)
+
+;; (setq bbdb-auto-notes-ignore '((("From" . "NO-REPLY"))))
+;; (setq bbdb-ignore-most-messages-alist (quote (("To" . "sacha") ("Cc" . "sacha") ("To" "emacs-wiki-discuss"))))
+
+
 
 ;; settings
 (custom-set-variables
