@@ -56,6 +56,9 @@
 
 ;;raml
 (add-to-list 'auto-mode-alist '("\\.raml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.wl\\'" . lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.emacs\\'" . lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.gnus\\'" . lisp-mode))
 
 ;; python
 (setenv "PYTHONDONTWRITEBYTECODE" "1")
