@@ -183,7 +183,6 @@
 (setq bbdb/news-auto-create-p t)
 (setq bbdb/srv-auto-create-p t)
 (setq bbdb-update-records-p 'create)
-;-
 (setq bbdb-file-coding-system 'utf-8)
 (setq bbdb-use-pop-up nil)
 (setq bbdb-complete-name-allow-cycling t)
@@ -192,11 +191,8 @@
 (setq bbdb-display-layout 'multi-line)
 (setq bbdb-pop-up-target-lines 1)
 (setq bbdb-north-american-phone-numbers-p nil)
-
 ;; (setq bbdb-auto-notes-ignore '((("From" . "NO-REPLY"))))
 ;; (setq bbdb-ignore-most-messages-alist (quote (("To" . "sacha") ("Cc" . "sacha") ("To" "emacs-wiki-discuss"))))
-
-
 
 ;; settings
 (custom-set-variables
