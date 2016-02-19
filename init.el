@@ -3,8 +3,29 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
+;; credentials
+(setq user-full-name   "Ivan Grishaev")
+(setq user-mail-adress "ivan@grishaev.me")
+
+;; dired mode
+(setq dired-recursive-deletes 'top)
+
+;; imenu
+(setq imenu-auto-rescan t)
+(setq imenu-use-popup-menu nil)
+
 ;; ido
 (ido-mode t)
+(icomplete-mode t)
+(ido-everywhere t)
+(setq ido-vitrual-buffers t)
+(setq ido-enable-flex-matching t)
+
+;; buffers
+(require 'bs)
+(require 'ibuffer)
+(defalias 'list-buffers 'ibuffer)
+(global-set-key (kbd "<f2>") 'bs-show)
 
 ;; slime
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
@@ -12,8 +33,26 @@
 
 ;; autocomplete
 (ac-config-default)
-(global-auto-complete-mode t)
 (setq ac-disable-faces nil)
+(setq ac-auto-start t)
+(add-to-list 'ac-modes   'lisp-mode)
+(add-to-list 'ac-sources 'ac-source-semantic)
+(add-to-list 'ac-sources 'ac-source-variables)
+(add-to-list 'ac-sources 'ac-source-functions)
+(add-to-list 'ac-sources 'ac-source-dictionary)
+(add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
+(add-to-list 'ac-sources 'ac-source-files-in-current-dir)
+(global-auto-complete-mode t)
+
+;; bookmarks
+(setq bookmark-save-flag t)
+(when (file-exists-p (concat user-emacs-directory "bookmarks"))
+  (bookmark-load bookmark-default-file t))
+(global-set-key (kbd "<f3>") 'bookmark-set)
+(global-set-key (kbd "<f4>") 'bookmark-jump)
+(global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
+(setq bookmark-default-file
+      (concat user-emacs-directory "bookmarks"))
 
 ;; nyan
 (nyan-mode t)
@@ -48,9 +87,6 @@
 (defun hl-trace ()
   (highlight-lines-matching-regexp "set_trace" 'hi-red-b))
 
-(defun hl-todos ()
-  (highlight-lines-matching-regexp "todo|TODO|Todo" 'hi-yellow-b))
-
 ;; markdown
 (add-hook 'markdown-mode-hook #'auto-fill-mode)
 
@@ -62,13 +98,17 @@
 
 ;; python
 (setenv "PYTHONDONTWRITEBYTECODE" "1")
-(setq python-check-command "flake8 --max-line-length=80 --count")
+(setq python-check-command "flake8 --max-line-length=80 --count") ;; pylint
 (add-hook 'cider-mode-hook (lambda () (show-paren-mode 1)))
 ;; (add-hook 'python-mode-hook #'highlight-parentheses-mode)
 (add-hook 'python-mode-hook #'outline-minor-mode)
 (add-hook 'python-mode-hook #'anaconda-mode)
 ;; (add-hook 'python-mode-hook (lambda () (hl-line-mode t)))
 (add-hook 'python-mode-hook #'hl-trace)
+
+;; todos
+(defun hl-todos ()
+  (highlight-lines-matching-regexp "todo\\|TODO\\|Todo" 'hi-yellow-b))
 (add-hook 'python-mode-hook #'hl-todos)
 
 ;; jedi
@@ -77,9 +117,6 @@
 ;; (setq jedi:server-args
 ;;       '("--virtual-env" "deleted"))
 ;; (global-set-key (kbd "<C-c .>") 'jedi:goto-definition)
-
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; flycheck
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -140,28 +177,88 @@
 (defalias 'ms 'magit-status)
 (defalias 'blame 'magit-blame)
 
-;; common
+;; UI
+(tooltip-mode      -1)
+(menu-bar-mode     -1)
+(tool-bar-mode     -1)
+(blink-cursor-mode -1)
+(setq use-dialog-box nil)
+(setq redisplay-dont-pause t)
+(setq ring-bell-function 'ignore)
+(setq inhibit-splash-screen t)
+(setq ingibit-startup-message t)
+(setq frame-title-format "Emacs %b")
+
+;; syntax
+(require 'font-lock)
+(global-font-lock-mode t)
+(setq font-lock-maximum-decoration t)
+
+;; pairs
+(electric-pair-mode t)
+;; (electric-indent-mode t)
 (show-paren-mode 1)
-;; (setq show-paren-style 'parenthesis)
-;; (setq show-paren-style 'expression)
-(setq confirm-kill-emacs 'y-or-n-p)
-(blink-cursor-mode 0)
-(tool-bar-mode -1)
-(global-linum-mode t)
+(setq show-paren-style 'parenthesis) ;; 'expression
+
+;; fringe
+(require 'fringe)
+(fringe-mode '(8 . 0))
+(setq-default indicate-empty-lines t)
+(setq-default indicate-buffer-boundaries 'left)
+
+;; formats
+(setq display-time-24hr-format t)
+(display-time-mode t)
+(size-indication-mode t)
+
+;; line wrapping
+(setq word-wrap t)
+(global-visual-line-mode t)
+
+;; no backups
 (setq auto-save-default nil)
 (setq make-backup-files nil)
+(setq auto-save-list-file-name nil)
+
+;; encodings
+(setq default-buffer-file-coding-system 'utf-8)
+(setq-default coding-system-for-read 'utf-8)
+(setq file-name-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8-unix)
+
+;; Line numbers
+(line-number-mode   t)
+(global-linum-mode  t)
+(column-number-mode t)
+(setq linum-format " %d")
+
+;; common
+(delete-selection-mode t)
+(setq confirm-kill-emacs 'y-or-n-p)
 (setq system-uses-terminfo nil)
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 (setq multi-term-program "/bin/bash")
 (global-set-key (kbd "s-d") 'delete-backward-char)
 (put 'downcase-region 'disabled nil)
-(menu-bar-mode 0)
+
+;; tabs
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width          4)
+(setq-default c-basic-offset     4)
+(setq-default standart-indent    4)
+(setq-default lisp-body-indent   2)
+;; (global-set-key (kbd "RET") 'newline-and-indent)
+(setq lisp-indent-function  'common-lisp-indent-function)
+
+;; new line/spaces
+(setq require-final-newline t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; org-mode
 (setq org-agenda-skip-deadline-if-done t)
@@ -177,10 +274,9 @@
 (global-set-key (kbd "C-c a") 'mail-abbrev-insert-alias)
 
 ;; bbdb
-(bbdb-initialize 'gnus 'message 'sc 'w3)
+(bbdb-initialize 'gnus 'message)
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-message)
-(bbdb-mua-auto-update-init 'gnus 'message 'sc 'w3)
 (setq bbdb-offer-save nil)
 (setq bbdb/mail-auto-create-p t)
 (setq bbdb/news-auto-create-p t)
@@ -189,13 +285,9 @@
 (setq bbdb-file-coding-system 'utf-8)
 (setq bbdb-use-pop-up nil)
 (setq bbdb-complete-name-allow-cycling t)
-(setq bbdb-canonicalize-redundant-nets-p t)
-(setq bbdb-offer-save 1)
+;; (setq bbdb-offer-save 1)
 (setq bbdb-display-layout 'multi-line)
 (setq bbdb-pop-up-target-lines 1)
-(setq bbdb-north-american-phone-numbers-p nil)
-;; (setq bbdb-auto-notes-ignore '((("From" . "NO-REPLY"))))
-;; (setq bbdb-ignore-most-messages-alist (quote (("To" . "sacha") ("Cc" . "sacha") ("To" "emacs-wiki-discuss"))))
 
 ;; settings
 (custom-set-variables
