@@ -5,7 +5,7 @@
 
 ;; credentials
 (setq user-full-name   "Ivan Grishaev")
-(setq user-mail-adress "ivan@grishaev.me")
+(setq user-mail-address "ivan@grishaev.me")
 
 ;; dired mode
 (setq dired-recursive-deletes 'top)
@@ -253,7 +253,6 @@
 (setq-default c-basic-offset     4)
 (setq-default standart-indent    4)
 (setq-default lisp-body-indent   2)
-;; (global-set-key (kbd "RET") 'newline-and-indent)
 (setq lisp-indent-function  'common-lisp-indent-function)
 
 ;; new line/spaces
@@ -265,11 +264,6 @@
 (setq org-agenda-skip-scheduled-if-done t)
 (global-set-key (kbd "C-c t") 'org-timeline)
 (setq calendar-week-start-day 1)
-
-;; mail
-(setq smtpmail-default-smtp-server "smtp.gmail.com")
-(setq message-send-mail-function 'smtpmail-send-it)
-(global-set-key (kbd "C-c a") 'mail-abbrev-insert-alias)
 
 ;; bbdb
 (bbdb-initialize 'gnus 'message)
