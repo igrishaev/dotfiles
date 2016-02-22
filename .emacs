@@ -267,8 +267,6 @@
 (setq calendar-week-start-day 1)
 
 ;; mail
-(setq user-full-name "Ivan Grishaev")
-(setq user-mail-address "ivan@grishaev.me")
 (setq smtpmail-default-smtp-server "smtp.gmail.com")
 (setq message-send-mail-function 'smtpmail-send-it)
 (global-set-key (kbd "C-c a") 'mail-abbrev-insert-alias)
