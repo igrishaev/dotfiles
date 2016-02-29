@@ -238,6 +238,7 @@
 (setq linum-format " %d")
 
 ;; common
+(set-fill-column 80)
 (delete-selection-mode t)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq system-uses-terminfo nil)
