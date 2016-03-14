@@ -100,10 +100,8 @@
 (setenv "PYTHONDONTWRITEBYTECODE" "1")
 (setq python-check-command "flake8 --max-line-length=80 --count") ;; pylint
 (add-hook 'cider-mode-hook (lambda () (show-paren-mode 1)))
-;; (add-hook 'python-mode-hook #'highlight-parentheses-mode)
 (add-hook 'python-mode-hook #'outline-minor-mode)
 (add-hook 'python-mode-hook #'anaconda-mode)
-;; (add-hook 'python-mode-hook (lambda () (hl-line-mode t)))
 (add-hook 'python-mode-hook #'hl-trace)
 
 ;; todos
@@ -111,40 +109,8 @@
   (highlight-lines-matching-regexp "todo\\|TODO\\|Todo" 'hi-yellow-b))
 (add-hook 'python-mode-hook #'hl-todos)
 
-;; jedi
-;; (setq jedi:complete-on-dot t)
-;; (add-hook 'python-mode-hook 'jedi:setup)
-;; (setq jedi:server-args
-;;       '("--virtual-env" "deleted"))
-;; (global-set-key (kbd "<C-c .>") 'jedi:goto-definition)
-
-;; flycheck
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
-
 ;; theme
 (load-theme 'light-blue t)
-
-;; move text up/down
-(global-set-key [s-up] 'move-text-up)
-(global-set-key [s-down] 'move-text-down)
-
-;; move text left/right
-(defun my-indent-region (N)
-  (interactive "p")
-  (if (use-region-p)
-      (progn (indent-rigidly (region-beginning) (region-end) (* N 2))
-             (setq deactivate-mark nil))
-    (self-insert-command N)))
-
-(defun my-unindent-region (N)
-  (interactive "p")
-  (if (use-region-p)
-      (progn (indent-rigidly (region-beginning) (region-end) (* N -2))
-             (setq deactivate-mark nil))
-    (self-insert-command N)))
-
-(global-set-key [s-right] 'my-indent-region)
-(global-set-key [s-left] 'my-unindent-region)
 
 ;; clojure
 (add-hook 'cider-mode-hook #'eldoc-mode)
@@ -265,22 +231,6 @@
 (setq org-agenda-skip-scheduled-if-done t)
 (global-set-key (kbd "C-c t") 'org-timeline)
 (setq calendar-week-start-day 1)
-
-;; bbdb
-(bbdb-initialize 'gnus 'message)
-(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-(add-hook 'gnus-startup-hook 'bbdb-insinuate-message)
-(setq bbdb-offer-save nil)
-(setq bbdb/mail-auto-create-p t)
-(setq bbdb/news-auto-create-p t)
-(setq bbdb/srv-auto-create-p t)
-(setq bbdb-update-records-p 'create)
-(setq bbdb-file-coding-system 'utf-8)
-(setq bbdb-use-pop-up nil)
-(setq bbdb-complete-name-allow-cycling t)
-;; (setq bbdb-offer-save 1)
-(setq bbdb-display-layout 'multi-line)
-(setq bbdb-pop-up-target-lines 1)
 
 ;; settings
 (custom-set-variables
