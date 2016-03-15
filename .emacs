@@ -213,6 +213,9 @@
 (global-set-key (kbd "s-d") 'delete-backward-char)
 (put 'downcase-region 'disabled nil)
 
+;; path
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 ;; tabs
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
