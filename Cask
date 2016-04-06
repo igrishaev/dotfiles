@@ -28,3 +28,4 @@
 (depends-on "ensime")
 (depends-on "ox-reveal")
 (depends-on "flymake-json-load")
+(depends-on "json-mode")

@@ -75,6 +75,9 @@
   (lambda ()
     (set (make-local-variable 'sgml-basic-offset) 4)))
 
+;; json
+(add-hook 'json-mode-hook #'flymake-json-load)
+
 ;; tags
 (defun tags-create (dir-name)
   (interactive "DDirectory: ")
