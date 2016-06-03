@@ -30,3 +30,4 @@
 (depends-on "flymake-json-load")
 (depends-on "json-mode")
 (depends-on "graphviz-dot-mode")
+(depends-on "htmlize")

@@ -92,6 +92,7 @@
 
 ;; markdown
 (add-hook 'markdown-mode-hook #'auto-fill-mode)
+(add-hook 'markdown-mode-hook (lambda () (set-fill-column 80)))
 
 ;;raml
 (add-to-list 'auto-mode-alist '("\\.raml\\'" . yaml-mode))
@@ -106,6 +107,8 @@
 (add-hook 'python-mode-hook #'outline-minor-mode)
 (add-hook 'python-mode-hook #'anaconda-mode)
 (add-hook 'python-mode-hook #'hl-trace)
+(add-hook 'python-mode-hook #'ruler-mode)
+(add-hook 'python-mode-hook (lambda () (set-fill-column 80)))
 
 ;; todos
 (defun hl-todos ()
@@ -207,7 +210,6 @@
 (setq linum-format " %d")
 
 ;; common
-(set-fill-column 80)
 (delete-selection-mode t)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq system-uses-terminfo nil)
@@ -218,6 +220,10 @@
 
 ;; path
 (setq exec-path (append exec-path '("/usr/local/bin")))
+
+;; movement
+(global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
+(global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
 
 ;; tabs
 (setq-default tab-width 4)
