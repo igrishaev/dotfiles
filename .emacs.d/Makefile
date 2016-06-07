@@ -4,7 +4,3 @@ install-cask:
 
 install-packages:
 	cask install
-
-all:
-	install-cask
-	install-packages
