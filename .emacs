@@ -1,7 +1,52 @@
-;; cask
+
+;; packages
+(setq package-archives
+      '(
+        ("gnu" . "http://elpa.gnu.org/packages/")
+        ("marmalade" . "https://marmalade-repo.org/packages/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("user42" . "http://download.tuxfamily.org/user42/elpa/packages/")
+        ))
+
+
+(require 'package)
 (package-initialize)
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
+(package-refresh-contents)
+
+(setq my-packages
+      '(
+        anaconda-mode
+        auto-complete
+        cider
+        clojure-mode
+        expand-region
+        flycheck
+        helm
+        haskell-mode
+        slime
+        flycheck
+        jinja2-mode
+        magit
+        markdown-mode
+        multi-term
+        nav
+        nyan-mode
+        paredit
+        prodigy
+        virtualenvwrapper
+        wrap-region
+        yaml-mode
+        simpleclip
+        ox-reveal
+        ;; flymake-json-load
+        json-mode
+        htmlize
+        racket-mode
+        ))
+
+(dolist (pkg my-packages)
+  (unless (package-installed-p pkg)
+    (package-install pkg)))
 
 ;; credentials
 (setq user-full-name   "Ivan Grishaev")
