@@ -282,6 +282,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; org-mode
+(setq system-time-locale "C")
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-agenda-skip-scheduled-if-done t)
 (global-set-key (kbd "C-c t") 'org-timeline)
