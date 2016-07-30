@@ -12,7 +12,7 @@
       '(
         anaconda-mode
         auto-complete
-        cider
+        ;; cider
         clojure-mode
         expand-region
         flycheck
@@ -42,6 +42,10 @@
 (dolist (pkg my-packages)
   (unless (package-installed-p pkg)
     (package-install pkg)))
+
+;; old cider https://github.com/clojure-emacs/cider/tree/v0.10
+(add-to-list 'load-path "~/.emacs.d/cider-0.10")
+(require 'cider)
 
 ;; credentials
 (setq user-full-name   "Ivan Grishaev")
