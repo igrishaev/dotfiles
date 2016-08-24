@@ -268,6 +268,7 @@
 
 ;; path
 (setq exec-path (append exec-path '("/usr/local/bin")))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 
 ;; movement
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
