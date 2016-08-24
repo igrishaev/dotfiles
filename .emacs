@@ -37,6 +37,7 @@
         json-mode
         htmlize
         racket-mode
+        elm-mode
         ))
 
 (dolist (pkg my-packages)
