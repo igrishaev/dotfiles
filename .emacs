@@ -172,6 +172,10 @@
 (add-hook 'cider-mode-hook #'highlight-parentheses-mode)
 (add-hook 'cider-mode-hook #'imenu-add-menubar-index)
 
+;; clojurescript mode
+(add-hook 'clojurescript-mode #'paredit-mode)
+(add-hook 'clojurescript-mode #'highlight-parentheses-mode)
+
 ;; sql
 (add-hook 'sql-interactive-mode-hook
           (lambda ()
@@ -257,6 +261,11 @@
 (column-number-mode t)
 (setq linum-format " %d")
 
+;; expand region
+(require 'expand-region)
+(global-set-key (kbd "C-c i") #'er/mark-inside-pairs)
+(global-set-key (kbd "C-c o") #'er/mark-outside-pairs)
+
 ;; common
 (delete-selection-mode t)
 (setq confirm-kill-emacs 'y-or-n-p)
@@ -265,7 +274,6 @@
 (setq multi-term-program "/bin/bash")
 (global-set-key (kbd "s-d") 'delete-backward-char)
 (put 'downcase-region 'disabled nil)
-
 ;; path
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
