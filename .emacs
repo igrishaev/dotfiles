@@ -272,11 +272,15 @@
 (setq system-uses-terminfo nil)
 (setq indent-line-function 'insert-tab)
 (setq multi-term-program "/bin/bash")
-(global-set-key (kbd "s-d") 'delete-backward-char)
 (put 'downcase-region 'disabled nil)
+
+;; global keys
+(global-unset-key "\C-z") ;; it crushes my Emacs
+(global-set-key (kbd "s-d") 'delete-backward-char)
+
 ;; path
-(setq exec-path (append exec-path '("/usr/local/bin")))
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin" "/Library/TeX/texbin")))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Library/TeX/texbin"))
 
 ;; movement
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
