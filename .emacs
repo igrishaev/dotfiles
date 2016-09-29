@@ -38,6 +38,8 @@
         htmlize
         racket-mode
         elm-mode
+        ensime
+        scala-mode
         ))
 
 (dolist (pkg my-packages)
