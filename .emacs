@@ -313,7 +313,7 @@
   :command "postgres"
   :args '("-E" "-D" "/usr/local/var/postgres")
   :tags '(dev)
-  :stop-signal 'sigkill
+  :stop-signal 'sigterm
   :kill-process-buffer-on-stop nil)
 
 ;; settings
