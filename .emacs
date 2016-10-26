@@ -46,8 +46,8 @@
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
-;; https://github.com/clojure-emacs/cider/tree/v0.xx
-(add-to-list 'load-path "~/.emacs.d/cider-0.13.0")
+;; https://github.com/clojure-emacs/cider/
+(add-to-list 'load-path "~/.emacs.d/cider-0.14.0")
 (require 'cider)
 
 ;; credentials
@@ -307,6 +307,7 @@
 (global-set-key (kbd "C-c t") 'org-timeline)
 (setq calendar-week-start-day 1)
 
+;; prodigy
 (prodigy-define-service
   :name "PostgreSQL"
   :command "postgres"
