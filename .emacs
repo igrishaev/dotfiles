@@ -46,8 +46,8 @@
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
-;; old cider https://github.com/clojure-emacs/cider/tree/v0.10
-(add-to-list 'load-path "~/.emacs.d/cider-0.10")
+;; https://github.com/clojure-emacs/cider/tree/v0.xx
+(add-to-list 'load-path "~/.emacs.d/cider-0.13.0")
 (require 'cider)
 
 ;; credentials
@@ -171,12 +171,11 @@
 ;; clojure
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
-(add-hook 'cider-mode-hook #'highlight-parentheses-mode)
 (add-hook 'cider-mode-hook #'imenu-add-menubar-index)
 
 ;; clojurescript mode
 (add-hook 'clojurescript-mode #'paredit-mode)
-(add-hook 'clojurescript-mode #'highlight-parentheses-mode)
+(add-hook 'clojurescript-mode #'paredit-mode)
 
 ;; sql
 (add-hook 'sql-interactive-mode-hook
@@ -307,6 +306,14 @@
 (setq org-agenda-skip-scheduled-if-done t)
 (global-set-key (kbd "C-c t") 'org-timeline)
 (setq calendar-week-start-day 1)
+
+(prodigy-define-service
+  :name "PostgreSQL"
+  :command "postgres"
+  :args '("-E" "-D" "/usr/local/var/postgres")
+  :tags '(dev)
+  :stop-signal 'sigkill
+  :kill-process-buffer-on-stop nil)
 
 ;; settings
 (custom-set-variables
