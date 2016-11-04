@@ -1,6 +1,9 @@
 #!/bin/bash
 
+brew tap caskroom/cask
+
 brew cask install \
+     iterm2 \
      sketch \
      skype \
      google-chrome \
