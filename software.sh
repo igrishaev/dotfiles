@@ -2,6 +2,14 @@
 
 brew tap caskroom/cask
 
+brew install \
+     git \
+     wget \
+     curl \
+     pandoc \
+     ghc \
+     mactex
+
 brew cask install \
      iterm2 \
      sketch \
