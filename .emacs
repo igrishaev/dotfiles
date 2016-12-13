@@ -19,7 +19,6 @@
         helm
         haskell-mode
         slime
-        flycheck
         jinja2-mode
         magit
         markdown-mode
