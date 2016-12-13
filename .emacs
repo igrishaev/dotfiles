@@ -306,7 +306,6 @@
 (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
 
 ;; tabs
-(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width          4)
 (setq-default c-basic-offset     4)
