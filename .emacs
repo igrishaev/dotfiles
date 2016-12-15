@@ -229,7 +229,7 @@
 (setq redisplay-dont-pause t)
 (setq ring-bell-function 'ignore)
 (setq inhibit-splash-screen t)
-(setq ingibit-startup-message t)
+(setq inhibit-startup-message t)
 (setq frame-title-format "Emacs %b")
 
 ;; syntax
