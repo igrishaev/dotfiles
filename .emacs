@@ -285,6 +285,7 @@
 (require 'expand-region)
 (global-set-key (kbd "C-c i") #'er/mark-inside-pairs)
 (global-set-key (kbd "C-c o") #'er/mark-outside-pairs)
+(global-set-key (kbd "C-c w") #'er/mark-method-call)
 
 ;; common
 (delete-selection-mode t)
