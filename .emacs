@@ -19,7 +19,6 @@
         helm
         haskell-mode
         slime
-        flycheck
         jinja2-mode
         magit
         markdown-mode
@@ -68,7 +67,7 @@
 (ido-mode t)
 (icomplete-mode t)
 (ido-everywhere t)
-(setq ido-vitrual-buffers t)
+(setq ido-virtual-buffers t)
 (setq ido-enable-flex-matching t)
 
 ;; buffers
@@ -230,7 +229,7 @@
 (setq redisplay-dont-pause t)
 (setq ring-bell-function 'ignore)
 (setq inhibit-splash-screen t)
-(setq ingibit-startup-message t)
+(setq inhibit-startup-message t)
 (setq frame-title-format "Emacs %b")
 
 ;; syntax
@@ -308,7 +307,6 @@
 (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
 
 ;; tabs
-(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width          4)
 (setq-default c-basic-offset     4)
