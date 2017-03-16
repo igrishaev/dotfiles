@@ -293,6 +293,7 @@
 (setq indent-line-function 'insert-tab)
 (setq multi-term-program "/bin/bash")
 (put 'downcase-region 'disabled nil)
+(set-face-attribute 'default nil :height 140)
 
 ;; global keys
 (global-unset-key "\C-z") ;; it crushes my Emacs
