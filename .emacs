@@ -10,35 +10,28 @@
 
 (setq my-packages
       '(
-        anaconda-mode
         auto-complete
         ;; cider
+        projectile
+        helm-swoop
         clojure-mode
         expand-region
         flycheck
         helm
-        haskell-mode
         slime
         jinja2-mode
         magit
         markdown-mode
-        multi-term
         nav
         nyan-mode
         paredit
         prodigy
-        virtualenvwrapper
         wrap-region
         yaml-mode
-        ;; simpleclip
         ox-reveal
-        ;; flymake-json-load
         json-mode
         htmlize
         racket-mode
-        elm-mode
-        ensime
-        scala-mode
         ))
 
 (dolist (pkg my-packages)
@@ -190,6 +183,8 @@
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'cider-mode-hook #'imenu-add-menubar-index)
+(setq cider-font-lock-dynamically nil)
+(setq cider-repl-use-pretty-printing t)
 
 ;; clojurescript mode
 (add-hook 'clojurescript-mode #'paredit-mode)
