@@ -52,6 +52,9 @@
 ;; dired mode
 (setq dired-recursive-deletes 'top)
 
+;; projectile
+(projectile-mode t)
+
 ;; imenu
 (setq imenu-auto-rescan t)
 (setq imenu-use-popup-menu nil)
@@ -69,8 +72,11 @@
 (defalias 'list-buffers 'ibuffer)
 (global-set-key (kbd "<f2>") 'bs-show)
 
+;; lisp
+;; (setq inferior-lisp-program "/usr/local/bin/sbcl")
+(setq inferior-lisp-program "lein run -m clojure.main")
+
 ;; slime
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
 (setq slime-net-coding-system 'utf-8-unix)
 
 ;; autocomplete
