@@ -11,7 +11,7 @@
 (setq my-packages
       '(
         auto-complete
-        ;; cider
+        cider
         projectile
         helm-swoop
         clojure-mode
@@ -39,8 +39,8 @@
     (package-install pkg)))
 
 ;; https://github.com/clojure-emacs/cider/
-(add-to-list 'load-path "~/.emacs.d/cider-0.14.0")
-(require 'cider)
+;; (add-to-list 'load-path "~/.emacs.d/cider-0.14.0")
+;; (require 'cider)
 
 ;; credentials
 (setq user-full-name   "Ivan Grishaev")
