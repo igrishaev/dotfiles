@@ -13,25 +13,18 @@
         auto-complete
         cider
         projectile
-        helm-swoop
         clojure-mode
         expand-region
-        flycheck
         helm
-        slime
         jinja2-mode
         magit
         markdown-mode
-        nav
         nyan-mode
         paredit
         prodigy
         wrap-region
         yaml-mode
-        ox-reveal
         json-mode
-        htmlize
-        racket-mode
         ))
 
 (dolist (pkg my-packages)
@@ -113,11 +106,6 @@
 (global-set-key (kbd "<C-M-return>") 'select-tags-table)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
-;; simpleclip
-;; (global-set-key (kbd "C-c c") 'simpleclip-copy)
-;; (global-set-key (kbd "C-c v") 'simpleclip-paste)
-;; (global-set-key (kbd "C-c x") 'simpleclip-cut)
-
 ;; OS copy-paste
 (defun pbcopy ()
   (interactive)
@@ -141,9 +129,6 @@
 (add-hook 'html-mode-hook
   (lambda ()
     (set (make-local-variable 'sgml-basic-offset) 4)))
-
-;; json
-(add-hook 'json-mode-hook #'flymake-json-load)
 
 ;; tags
 (defun tags-create (dir-name)
@@ -335,13 +320,3 @@
   :tags '(dev)
   :stop-signal 'sigterm
   :kill-process-buffer-on-stop nil)
-
-;; settings
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(tab-stop-list
-   (quote
-    (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))))
