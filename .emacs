@@ -312,6 +312,12 @@
 (global-set-key (kbd "C-c t") 'org-timeline)
 (setq calendar-week-start-day 1)
 
+;; window resize
+(global-set-key (kbd "s-<up>") 'enlarge-window)
+(global-set-key (kbd "s-<down>") 'shrink-window)
+(global-set-key (kbd "s-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "s-<left>") 'shrink-window-horizontally)
+
 ;; prodigy
 (prodigy-define-service
   :name "PostgreSQL"
