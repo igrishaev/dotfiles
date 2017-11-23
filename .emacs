@@ -318,6 +318,12 @@
 (global-set-key (kbd "s-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "s-<left>") 'shrink-window-horizontally)
 
+;; remapping
+(setq mac-control-modifier 'command)
+
+;; deleting
+(global-set-key (kbd "M-d") 'delete-backward-char)
+
 ;; prodigy
 (prodigy-define-service
   :name "PostgreSQL"
