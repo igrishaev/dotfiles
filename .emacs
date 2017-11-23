@@ -313,16 +313,13 @@
 (setq calendar-week-start-day 1)
 
 ;; window resize
-(global-set-key (kbd "s-<up>") 'enlarge-window)
-(global-set-key (kbd "s-<down>") 'shrink-window)
-(global-set-key (kbd "s-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "s-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "C-<up>") 'enlarge-window)
+(global-set-key (kbd "C-<down>") 'shrink-window)
+(global-set-key (kbd "C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "C-<left>") 'shrink-window-horizontally)
 
 ;; remapping
-(setq mac-control-modifier 'command)
-
-;; deleting
-(global-set-key (kbd "M-d") 'delete-backward-char)
+(setq mac-command-modifier 'control)
 
 ;; prodigy
 (prodigy-define-service
