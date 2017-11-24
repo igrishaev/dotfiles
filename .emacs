@@ -321,6 +321,14 @@
 ;; remapping
 (setq mac-command-modifier 'control)
 
+;; custom keys
+
+(global-set-key (kbd "C-o") 'other-window)
+(global-set-key (kbd "C-h") 'split-window
+(global-set-key (kbd "C-h") 'split-window-horizontally)
+(global-set-key (kbd "C-v") 'split-window-vertically)
+(global-set-key (kbd "C-b") 'switch-to-buffer)
+
 ;; prodigy
 (prodigy-define-service
   :name "PostgreSQL"
