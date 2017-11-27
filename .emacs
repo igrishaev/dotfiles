@@ -100,9 +100,7 @@
 
 ;; helm
 (helm-mode 1)
-(global-set-key (kbd "C-x i") 'helm-imenu)
 (global-set-key (kbd "<M-return>") 'helm-etags-select)
-(global-set-key (kbd "<s-return>") 'helm-find-files)
 (global-set-key (kbd "<C-M-return>") 'select-tags-table)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
@@ -289,7 +287,6 @@
 (setq exec-path (append exec-path '("/usr/local/bin" "/Library/TeX/texbin")))
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Library/TeX/texbin"))
 
-;; movement
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
 
@@ -323,11 +320,21 @@
 
 ;; custom keys
 
+(define-key input-decode-map "\C-m" [C-m])
+(define-key input-decode-map "\C-i" [C-i])
+(define-key input-decode-map [?\C-\[] (kbd "<C-[>"))
+(define-key input-decode-map [?\C-\]] (kbd "<C-]>"))
+
 (global-set-key (kbd "C-o") 'other-window)
-(global-set-key (kbd "C-h") 'split-window
-(global-set-key (kbd "C-h") 'split-window-horizontally)
-(global-set-key (kbd "C-v") 'split-window-vertically)
-(global-set-key (kbd "C-b") 'switch-to-buffer)
+(global-set-key (kbd "C-v") 'split-window-horizontally)
+(global-set-key (kbd "C-h") 'split-window-vertically)
+(global-set-key (kbd "<C-m>") 'switch-to-buffer)
+(global-set-key (kbd "C-,") (lambda () (interactive) (previous-line 5)))
+(global-set-key (kbd "C-.") (lambda () (interactive) (next-line 5)))
+(global-set-key (kbd "<C-[>") 'backward-word)
+(global-set-key (kbd "<C-]>") 'forward-word)
+(global-set-key (kbd "<C-i>") 'helm-imenu)
+(global-set-key (kbd "<C-return>") 'find-file)
 
 ;; prodigy
 (prodigy-define-service
