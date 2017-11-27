@@ -328,6 +328,7 @@
 (global-set-key (kbd "C-o") 'other-window)
 (global-set-key (kbd "C-v") 'split-window-horizontally)
 (global-set-key (kbd "C-h") 'split-window-vertically)
+(global-set-key (kbd "C-t") 'delete-other-windows)
 (global-set-key (kbd "<C-m>") 'switch-to-buffer)
 (global-set-key (kbd "C-,") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-.") (lambda () (interactive) (next-line 5)))
