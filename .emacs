@@ -11,7 +11,7 @@
 (setq my-packages
       '(
         auto-complete
-        cider
+        ;; cider
         projectile
         clojure-mode
         expand-region
@@ -31,9 +31,9 @@
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
-;; https://github.com/clojure-emacs/cider/
-;; (add-to-list 'load-path "~/.emacs.d/cider-0.14.0")
-;; (require 'cider)
+;; cider
+(add-to-list 'load-path "~/.emacs.d/cider-0.15.1")
+(require 'cider)
 
 ;; credentials
 (setq user-full-name   "Ivan Grishaev")
@@ -310,10 +310,10 @@
 (setq calendar-week-start-day 1)
 
 ;; window resize
-(global-set-key (kbd "C-<up>") 'enlarge-window)
-(global-set-key (kbd "C-<down>") 'shrink-window)
-(global-set-key (kbd "C-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "s-<up>") 'enlarge-window)
+(global-set-key (kbd "s-<down>") 'shrink-window)
+(global-set-key (kbd "s-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "s-<left>") 'shrink-window-horizontally)
 
 ;; remapping
 (setq mac-command-modifier 'control)
