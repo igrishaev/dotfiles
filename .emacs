@@ -153,7 +153,6 @@
 ;; python
 (setenv "PYTHONDONTWRITEBYTECODE" "1")
 (setq python-check-command "flake8 --max-line-length=80 --count") ;; pylint
-(add-hook 'cider-mode-hook (lambda () (show-paren-mode 1)))
 (add-hook 'python-mode-hook #'outline-minor-mode)
 (add-hook 'python-mode-hook #'anaconda-mode)
 (add-hook 'python-mode-hook #'hl-trace)
@@ -169,6 +168,7 @@
 (load-theme 'light-blue t)
 
 ;; clojure
+(add-hook 'cider-mode-hook (lambda () (show-paren-mode 1)))
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'cider-mode-hook #'imenu-add-menubar-index)
@@ -294,7 +294,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width          4)
 (setq-default c-basic-offset     4)
-(setq-default standart-indent    4)
+ (setq-default standart-indent    4)
 (setq-default lisp-body-indent   2)
 (setq lisp-indent-function  'common-lisp-indent-function)
 
@@ -327,7 +327,8 @@
 
 (global-set-key (kbd "C-o") 'other-window)
 (global-set-key (kbd "C-v") 'split-window-horizontally)
-(global-set-key (kbd "C-h") 'split-window-vertically)
+(global-set-key (kbd "C-h") 'set-mark-command)
+(global-set-key (kbd "C-;") 'split-window-vertically)
 (global-set-key (kbd "C-t") 'delete-other-windows)
 (global-set-key (kbd "<C-m>") 'switch-to-buffer)
 (global-set-key (kbd "C-,") (lambda () (interactive) (previous-line 5)))
