@@ -12,16 +12,16 @@
       '(
         auto-complete
         ;; cider
-        projectile
+        ;; projectile
         clojure-mode
         expand-region
         helm
         jinja2-mode
         magit
         markdown-mode
-        nyan-mode
+        ;; nyan-mode
         paredit
-        prodigy
+        ;; prodigy
         wrap-region
         yaml-mode
         json-mode
@@ -36,7 +36,7 @@
 (require 'cider)
 
 ;; credentials
-(setq user-full-name   "Ivan Grishaev")
+(setq user-full-name    "Ivan Grishaev")
 (setq user-mail-address "ivan@grishaev.me")
 
 ;; tramp
@@ -96,7 +96,7 @@
       (concat user-emacs-directory "bookmarks"))
 
 ;; nyan
-(nyan-mode t)
+;; (nyan-mode t)
 
 ;; helm
 (helm-mode 1)
@@ -327,8 +327,8 @@
 
 (global-set-key (kbd "C-o") 'other-window)
 (global-set-key (kbd "C-v") 'split-window-horizontally)
-(global-set-key (kbd "C-h") 'set-mark-command)
-(global-set-key (kbd "C-;") 'split-window-vertically)
+;; (global-set-key (kbd "C-h") 'set-mark-command)
+(global-set-key (kbd "C-h") 'split-window-vertically)
 (global-set-key (kbd "C-t") 'delete-other-windows)
 (global-set-key (kbd "<C-m>") 'switch-to-buffer)
 (global-set-key (kbd "C-,") (lambda () (interactive) (previous-line 5)))
