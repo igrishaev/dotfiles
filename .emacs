@@ -11,6 +11,8 @@
 (setq my-packages
       '(
         auto-complete
+        dedicated
+        ;; inf-clojure
         ;; cider
         ;; projectile
         clojure-mode
@@ -32,12 +34,15 @@
     (package-install pkg)))
 
 ;; cider
-(add-to-list 'load-path "~/.emacs.d/cider-0.15.1")
+(add-to-list 'load-path "~/.emacs.d/cider-0.17.0")
 (require 'cider)
 
 ;; credentials
 (setq user-full-name    "Ivan Grishaev")
 (setq user-mail-address "ivan@grishaev.me")
+
+;; dedicated
+(require 'dedicated)
 
 ;; tramp
 (setq tramp-default-method "ssh")
@@ -65,6 +70,10 @@
 (defalias 'list-buffers 'ibuffer)
 (global-set-key (kbd "<f2>") 'bs-show)
 
+;; spelling
+;; brew install aspell --with-lang-ru
+(setq ispell-program-name "aspell")
+
 ;; lisp
 ;; (setq inferior-lisp-program "/usr/local/bin/sbcl")
 (setq inferior-lisp-program "lein run -m clojure.main")
@@ -81,8 +90,8 @@
 (add-to-list 'ac-sources 'ac-source-variables)
 (add-to-list 'ac-sources 'ac-source-functions)
 (add-to-list 'ac-sources 'ac-source-dictionary)
-(add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
-(add-to-list 'ac-sources 'ac-source-files-in-current-dir)
+;; (add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
+;; (add-to-list 'ac-sources 'ac-source-files-in-current-dir)
 (global-auto-complete-mode t)
 
 ;; bookmarks
@@ -310,10 +319,10 @@
 (setq calendar-week-start-day 1)
 
 ;; window resize
-(global-set-key (kbd "s-<up>") 'enlarge-window)
-(global-set-key (kbd "s-<down>") 'shrink-window)
-(global-set-key (kbd "s-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "s-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "C-<right>")'enlarge-window-horizontally)
+(global-set-key (kbd "C-<down>") 'enlarge-window)
+(global-set-key (kbd "C-<up>")   'shrink-window)
 
 ;; remapping
 (setq mac-command-modifier 'control)
@@ -346,3 +355,29 @@
   :tags '(dev)
   :stop-signal 'sigterm
   :kill-process-buffer-on-stop nil)
+
+;; SQL
+;; (setenv "PGPASSWORD" "whatever your password is")
+
+(setq sql-connection-alist
+      '((cleo-local (sql-product 'postgres)
+         (sql-port 5461)
+         (sql-server "localhost")
+         (sql-user "postgres")
+         (sql-password "postgres")
+         (sql-database "proto"))))
+
+;; Customize
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
