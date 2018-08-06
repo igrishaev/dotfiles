@@ -73,6 +73,7 @@
 ;; spelling
 ;; brew install aspell --with-lang-ru
 (setq ispell-program-name "aspell")
+;; (setq ispell-extra-args '("--sug-mode=fast"))
 
 ;; lisp
 ;; (setq inferior-lisp-program "/usr/local/bin/sbcl")
