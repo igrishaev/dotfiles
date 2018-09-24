@@ -10,20 +10,16 @@
 
 (setq my-packages
       '(
-        auto-complete
-        dedicated
-        ;; inf-clojure
+        ;; auto-complete
         ;; cider
-        ;; projectile
+        projectile
         clojure-mode
         expand-region
         helm
         jinja2-mode
         magit
         markdown-mode
-        ;; nyan-mode
         paredit
-        ;; prodigy
         wrap-region
         yaml-mode
         json-mode
@@ -34,15 +30,12 @@
     (package-install pkg)))
 
 ;; cider
-(add-to-list 'load-path "~/.emacs.d/cider-0.17.0")
+(add-to-list 'load-path "~/.emacs.d/cider-0.18.0")
 (require 'cider)
 
 ;; credentials
 (setq user-full-name    "Ivan Grishaev")
 (setq user-mail-address "ivan@grishaev.me")
-
-;; dedicated
-(require 'dedicated)
 
 ;; tramp
 (setq tramp-default-method "ssh")
@@ -83,17 +76,17 @@
 (setq slime-net-coding-system 'utf-8-unix)
 
 ;; autocomplete
-(ac-config-default)
-(setq ac-disable-faces nil)
-(setq ac-auto-start t)
-(add-to-list 'ac-modes   'lisp-mode)
-(add-to-list 'ac-sources 'ac-source-semantic)
-(add-to-list 'ac-sources 'ac-source-variables)
-(add-to-list 'ac-sources 'ac-source-functions)
-(add-to-list 'ac-sources 'ac-source-dictionary)
+;; (ac-config-default)
+;; (setq ac-disable-faces nil)
+;; (setq ac-auto-start f)
+;; (add-to-list 'ac-modes   'lisp-mode)
+;; (add-to-list 'ac-sources 'ac-source-semantic)
+;; (add-to-list 'ac-sources 'ac-source-variables)
+;; (add-to-list 'ac-sources 'ac-source-functions)
+;; (add-to-list 'ac-sources 'ac-source-dictionary)
 ;; (add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
 ;; (add-to-list 'ac-sources 'ac-source-files-in-current-dir)
-(global-auto-complete-mode t)
+;; (global-auto-complete-mode t)
 
 ;; bookmarks
 (setq bookmark-save-flag t)
@@ -104,9 +97,6 @@
 (global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
 (setq bookmark-default-file
       (concat user-emacs-directory "bookmarks"))
-
-;; nyan
-;; (nyan-mode t)
 
 ;; helm
 (helm-mode 1)
@@ -337,7 +327,6 @@
 
 (global-set-key (kbd "C-o") 'other-window)
 (global-set-key (kbd "C-v") 'split-window-horizontally)
-;; (global-set-key (kbd "C-h") 'set-mark-command)
 (global-set-key (kbd "C-h") 'split-window-vertically)
 (global-set-key (kbd "C-t") 'delete-other-windows)
 (global-set-key (kbd "<C-m>") 'switch-to-buffer)
@@ -347,26 +336,6 @@
 (global-set-key (kbd "<C-]>") 'forward-word)
 (global-set-key (kbd "<C-i>") 'helm-imenu)
 (global-set-key (kbd "<C-return>") 'find-file)
-
-;; prodigy
-(prodigy-define-service
-  :name "PostgreSQL"
-  :command "postgres"
-  :args '("-E" "-D" "/usr/local/var/postgres")
-  :tags '(dev)
-  :stop-signal 'sigterm
-  :kill-process-buffer-on-stop nil)
-
-;; SQL
-;; (setenv "PGPASSWORD" "whatever your password is")
-
-(setq sql-connection-alist
-      '((cleo-local (sql-product 'postgres)
-         (sql-port 5461)
-         (sql-server "localhost")
-         (sql-user "postgres")
-         (sql-password "postgres")
-         (sql-database "proto"))))
 
 ;; Customize
 
