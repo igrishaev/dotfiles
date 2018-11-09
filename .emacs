@@ -11,7 +11,7 @@
 (setq my-packages
       '(
         ;; auto-complete
-        ;; cider
+        cider
         projectile
         clojure-mode
         expand-region
@@ -30,7 +30,8 @@
     (package-install pkg)))
 
 ;; cider
-(add-to-list 'load-path "~/.emacs.d/cider-0.18.0")
+;; (add-to-list 'load-path "~/.emacs.d/cider-0.18.0")
+;; (add-to-list 'load-path "~/.emacs.d/cider-master")
 (require 'cider)
 
 ;; credentials
@@ -176,7 +177,6 @@
 (setq cider-repl-use-pretty-printing t)
 
 ;; clojurescript mode
-(add-hook 'clojurescript-mode #'paredit-mode)
 (add-hook 'clojurescript-mode #'paredit-mode)
 
 ;; sql
@@ -344,7 +344,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-agenda-files (quote ("~/shadow/todo.org")))
+ '(package-selected-packages
+   (quote
+    (cider yaml-mode wrap-region spinner sesman queue projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated clojure-mode auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
