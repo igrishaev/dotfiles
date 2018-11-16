@@ -173,6 +173,7 @@
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'cider-mode-hook #'imenu-add-menubar-index)
+(add-hook 'cider-mode-hook #'hl-todos)
 (setq cider-font-lock-dynamically nil)
 (setq cider-repl-use-pretty-printing t)
 
@@ -334,12 +335,13 @@
 (global-set-key (kbd "C-.") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "<C-[>") 'backward-word)
 (global-set-key (kbd "<C-]>") 'forward-word)
-(global-set-key (kbd "<C-i>") 'helm-imenu)
-(global-set-key (kbd "<C-return>") 'find-file)
+(global-set-key (kbd "<C-i>") 'helm-global)
+(imenu-set-key (kbd "<C-return>") 'find-file)
+(global-set-key (kbd "<M-o>") 'helm-etags-select)
 
-;; Customize
+;; custom
 
-(custom-set-variables
+(select-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
