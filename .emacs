@@ -47,6 +47,12 @@
 ;; projectile
 (projectile-mode t)
 
+;; wrap-region
+(require 'wrap-region)
+(wrap-region-mode t)
+(wrap-region-add-wrapper "<" ">")
+(wrap-region-add-wrapper "#_" "" "#" 'clojurescript-mode)
+
 ;; imenu
 (setq imenu-auto-rescan t)
 (setq imenu-use-popup-menu nil)
