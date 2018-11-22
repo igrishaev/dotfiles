@@ -52,6 +52,9 @@
 (wrap-region-mode t)
 (wrap-region-add-wrapper "<" ">")
 (wrap-region-add-wrapper "#_" "" "#" 'clojurescript-mode)
+(wrap-region-add-wrapper "`" "`" "c" 'markdown-mode)   ;; code
+(wrap-region-add-wrapper "*" "*" "i" 'markdown-mode)   ;; italic
+(wrap-region-add-wrapper "**" "**" "b" 'markdown-mode) ;; bold
 
 ;; imenu
 (setq imenu-auto-rescan t)
@@ -150,6 +153,7 @@
 ;; markdown
 (add-hook 'markdown-mode-hook #'auto-fill-mode)
 (add-hook 'markdown-mode-hook (lambda () (set-fill-column 80)))
+(add-hook 'markdown-mode-hook #'wrap-region-mode)
 
 ;;raml
 (add-to-list 'auto-mode-alist '("\\.raml\\'" . yaml-mode))
