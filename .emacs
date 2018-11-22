@@ -10,7 +10,6 @@
 
 (setq my-packages
       '(
-        ;; auto-complete
         cider
         projectile
         clojure-mode
@@ -84,19 +83,6 @@
 
 ;; slime
 (setq slime-net-coding-system 'utf-8-unix)
-
-;; autocomplete
-;; (ac-config-default)
-;; (setq ac-disable-faces nil)
-;; (setq ac-auto-start f)
-;; (add-to-list 'ac-modes   'lisp-mode)
-;; (add-to-list 'ac-sources 'ac-source-semantic)
-;; (add-to-list 'ac-sources 'ac-source-variables)
-;; (add-to-list 'ac-sources 'ac-source-functions)
-;; (add-to-list 'ac-sources 'ac-source-dictionary)
-;; (add-to-list 'ac-sources 'ac-source-words-in-all-buffer)
-;; (add-to-list 'ac-sources 'ac-source-files-in-current-dir)
-;; (global-auto-complete-mode t)
 
 ;; bookmarks
 (setq bookmark-save-flag t)
