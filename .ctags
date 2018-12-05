@@ -25,5 +25,4 @@
 --regex-clojure=/\([ \t]*intern[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/v,intern/
 --regex-clojure=/\([ \t]*ns[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/n,namespace/
 
---regex-clojure=/::.+/k,keyword/
---regex-clojure=/:.+\/.+/k,keyword/
+--regex-clojure=/:.+/k,keyword/

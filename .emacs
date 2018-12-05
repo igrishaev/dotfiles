@@ -50,6 +50,7 @@
 (require 'wrap-region)
 (wrap-region-mode t)
 (wrap-region-add-wrapper "<" ">")
+(wrap-region-add-wrapper "`" "`")
 (wrap-region-add-wrapper "#_" "" "#" 'clojurescript-mode)
 (wrap-region-add-wrapper "`" "`" "c" 'markdown-mode)   ;; code
 (wrap-region-add-wrapper "*" "*" "i" 'markdown-mode)   ;; italic
@@ -291,7 +292,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width          4)
 (setq-default c-basic-offset     4)
- (setq-default standart-indent    4)
+(setq-default standart-indent    4)
 (setq-default lisp-body-indent   2)
 (setq lisp-indent-function  'common-lisp-indent-function)
 
@@ -321,6 +322,7 @@
 (define-key input-decode-map "\C-i" [C-i])
 (define-key input-decode-map [?\C-\[] (kbd "<C-[>"))
 (define-key input-decode-map [?\C-\]] (kbd "<C-]>"))
+(define-key input-decode-map [?\C-\'] (kbd "<C-'>"))
 
 (global-set-key (kbd "C-o") 'other-window)
 (global-set-key (kbd "C-v") 'split-window-horizontally)
@@ -331,24 +333,5 @@
 (global-set-key (kbd "C-.") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "<C-[>") 'backward-word)
 (global-set-key (kbd "<C-]>") 'forward-word)
-(global-set-key (kbd "<C-i>") 'helm-global)
-(imenu-set-key (kbd "<C-return>") 'find-file)
-(global-set-key (kbd "<M-o>") 'helm-etags-select)
-
-;; custom
-
-(select-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/shadow/todo.org")))
- '(package-selected-packages
-   (quote
-    (cider yaml-mode wrap-region spinner sesman queue projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated clojure-mode auto-complete))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(global-set-key (kbd "<C-i>") 'helm-imenu)
+(global-set-key (kbd "<C-'>") 'helm-etags-select)
