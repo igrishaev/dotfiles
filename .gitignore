@@ -1,0 +1,7 @@
+TAGS
+venv
+__pycache__
+.DS_Store
+*.pyc
+*.jar
+*.class

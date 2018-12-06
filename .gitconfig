@@ -8,3 +8,6 @@
   poh = push origin HEAD
   pulloh = pull origin HEAD
   set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+
+[core]
+    excludesfile = ~/.gitignore
