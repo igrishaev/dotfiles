@@ -53,8 +53,15 @@
 (wrap-region-add-wrapper "`" "`")
 (wrap-region-add-wrapper "#_" "" "#" 'clojurescript-mode)
 (wrap-region-add-wrapper "`" "`" "c" 'markdown-mode)   ;; code
+(wrap-region-add-wrapper "`" "`" "с" 'markdown-mode)   ;; same, cyrillic
+(wrap-region-add-wrapper "~~~clojure" "~~~" "l" 'markdown-mode)   ;; code block
+(wrap-region-add-wrapper "~~~clojure" "~~~" "д" 'markdown-mode)   ;; same, cyrillic
+(wrap-region-add-wrapper "(" ")" "(" 'markdown-mode)
 (wrap-region-add-wrapper "*" "*" "i" 'markdown-mode)   ;; italic
+(wrap-region-add-wrapper "*" "*" "*" 'markdown-mode)   ;; italic
 (wrap-region-add-wrapper "**" "**" "b" 'markdown-mode) ;; bold
+(wrap-region-add-wrapper "**" "**" "и" 'markdown-mode) ;; same, cyrillic
+(wrap-region-add-wrapper "[" "]" "х"   'markdown-mode) ;; [] cyrillic
 
 ;; imenu
 (setq imenu-auto-rescan t)
@@ -313,11 +320,13 @@
 (global-set-key (kbd "C-<down>") 'enlarge-window)
 (global-set-key (kbd "C-<up>")   'shrink-window)
 
+;; line width
+(setq-default fill-column 80)
+
 ;; remapping
 (setq mac-command-modifier 'control)
 
 ;; custom keys
-
 (define-key input-decode-map "\C-m" [C-m])
 (define-key input-decode-map "\C-i" [C-i])
 (define-key input-decode-map [?\C-\[] (kbd "<C-[>"))
@@ -335,3 +344,17 @@
 (global-set-key (kbd "<C-]>") 'forward-word)
 (global-set-key (kbd "<C-i>") 'helm-imenu)
 (global-set-key (kbd "<C-'>") 'helm-etags-select)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

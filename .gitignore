@@ -5,3 +5,5 @@ __pycache__
 *.pyc
 *.jar
 *.class
+html-docs
+Makefile.local
