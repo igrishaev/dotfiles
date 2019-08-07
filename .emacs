@@ -11,6 +11,7 @@
 (setq my-packages
       '(
         cider
+        highlight
         projectile
         clojure-mode
         expand-region
@@ -351,7 +352,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete))))
+    (highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

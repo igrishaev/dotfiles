@@ -7,3 +7,4 @@ __pycache__
 *.class
 html-docs
 Makefile.local
+.eastwood
