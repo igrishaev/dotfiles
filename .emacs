@@ -315,11 +315,24 @@
 (global-set-key (kbd "C-c t") 'org-timeline)
 (setq calendar-week-start-day 1)
 
-;; window resize
+;; windows
 (global-set-key (kbd "C-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "C-<right>")'enlarge-window-horizontally)
 (global-set-key (kbd "C-<down>") 'enlarge-window)
 (global-set-key (kbd "C-<up>")   'shrink-window)
+(setq split-height-threshold 1200)
+(setq split-width-threshold 2000)
+
+(defun toggle-window-dedicated ()
+  "Toggle whether the current active window is dedicated or not"
+  (interactive)
+  (message
+   (if (let (window (get-buffer-window (current-buffer)))
+	     (set-window-dedicated-p window
+    				             (not (window-dedicated-p window))))
+       "Window '%s' is dedicated"
+       "Window '%s' is normal")
+   (current-buffer)))
 
 ;; line width
 (setq-default fill-column 80)
