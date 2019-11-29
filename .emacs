@@ -64,6 +64,19 @@
 (wrap-region-add-wrapper "**" "**" "и" 'markdown-mode) ;; same, cyrillic
 (wrap-region-add-wrapper "[" "]" "х"   'markdown-mode) ;; [] cyrillic
 
+;; LaTex/Clojure book
+;; (wrap-region-add-wrapper "\\begin{code}" "\\end{code}" "c"   'latex-mode)
+;; (wrap-region-add-wrapper "\\hl{" "}" "h"   'latex-mode)
+
+(wrap-region-add-wrapper "\\begin{verbatim}" "\\end{verbatim}" "c"   'latex-mode)
+(wrap-region-add-wrapper "\\spverb|" "|" "h" 'latex-mode)
+(wrap-region-add-wrapper "\\emph{" "}" "e" 'latex-mode)
+(wrap-region-add-wrapper "<<" ">>" "q" 'latex-mode)
+
+(wrap-region-add-wrapper "\\spverb|" "|" "р" 'latex-mode)
+(wrap-region-add-wrapper "\\emph{" "}" "у" 'latex-mode)
+(wrap-region-add-wrapper "<<" ">>" "й" 'latex-mode)
+
 ;; imenu
 (setq imenu-auto-rescan t)
 (setq imenu-use-popup-menu nil)
@@ -127,6 +140,9 @@
 (global-set-key (kbd "C-c c") 'pbcopy)
 (global-set-key (kbd "C-c v") 'pbpaste)
 (global-set-key (kbd "C-c x") 'pbcut)
+
+;; tables
+(global-set-key (kbd "C-c C-c") 'org-table-align)
 
 ;; html
 (add-hook 'html-mode-hook
@@ -315,6 +331,9 @@
 (global-set-key (kbd "C-c t") 'org-timeline)
 (setq calendar-week-start-day 1)
 
+;; git
+(setq magit-git-executable "/usr/local/bin/git")
+
 ;; windows
 (global-set-key (kbd "C-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "C-<right>")'enlarge-window-horizontally)
@@ -347,17 +366,20 @@
 (define-key input-decode-map [?\C-\]] (kbd "<C-]>"))
 (define-key input-decode-map [?\C-\'] (kbd "<C-'>"))
 
-(global-set-key (kbd "C-o") 'other-window)
-(global-set-key (kbd "C-v") 'split-window-horizontally)
-(global-set-key (kbd "C-h") 'split-window-vertically)
-(global-set-key (kbd "C-t") 'delete-other-windows)
+(global-set-key (kbd "C-o")   'other-window)
+(global-set-key (kbd "C-v")   'split-window-horizontally)
+(global-set-key (kbd "C-h")   'split-window-vertically)
+(global-set-key (kbd "C-t")   'delete-other-windows)
 (global-set-key (kbd "<C-m>") 'switch-to-buffer)
-(global-set-key (kbd "C-,") (lambda () (interactive) (previous-line 5)))
-(global-set-key (kbd "C-.") (lambda () (interactive) (next-line 5)))
+(global-set-key (kbd "C-,")   (lambda () (interactive) (previous-line 5)))
+(global-set-key (kbd "C-.")   (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "<C-[>") 'backward-word)
 (global-set-key (kbd "<C-]>") 'forward-word)
 (global-set-key (kbd "<C-i>") 'helm-imenu)
 (global-set-key (kbd "<C-'>") 'helm-etags-select)
+(global-set-key (kbd "M-n")   'cider-repl-set-ns)
+(global-set-key (kbd "M-m")   'magit-status)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -365,7 +387,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete))))
+    (0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
