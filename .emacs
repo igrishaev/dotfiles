@@ -72,10 +72,13 @@
 (wrap-region-add-wrapper "\\spverb|" "|" "h" 'latex-mode)
 (wrap-region-add-wrapper "\\emph{" "}" "e" 'latex-mode)
 (wrap-region-add-wrapper "<<" ">>" "q" 'latex-mode)
+(wrap-region-add-wrapper "\\textbf{" "}" "b" 'latex-mode)
 
 (wrap-region-add-wrapper "\\spverb|" "|" "р" 'latex-mode)
 (wrap-region-add-wrapper "\\emph{" "}" "у" 'latex-mode)
 (wrap-region-add-wrapper "<<" ">>" "й" 'latex-mode)
+(wrap-region-add-wrapper "\\textbf{" "}" "и" 'latex-mode)
+
 
 ;; imenu
 (setq imenu-auto-rescan t)
@@ -379,6 +382,8 @@
 (global-set-key (kbd "<C-'>") 'helm-etags-select)
 (global-set-key (kbd "M-n")   'cider-repl-set-ns)
 (global-set-key (kbd "M-m")   'magit-status)
+(global-set-key (kbd "M-t")   'cider-test-run-test)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
