@@ -8,3 +8,4 @@ __pycache__
 html-docs
 Makefile.local
 .eastwood
+docker-compose.local.yml

@@ -338,8 +338,8 @@
 (setq magit-git-executable "/usr/local/bin/git")
 
 ;; windows
-(global-set-key (kbd "C-<left>") 'shrink-window-horizontally)
-(global-set-key (kbd "C-<right>")'enlarge-window-horizontally)
+(global-set-key (kbd "M-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "M-<right>")'enlarge-window-horizontally)
 (global-set-key (kbd "C-<down>") 'enlarge-window)
 (global-set-key (kbd "C-<up>")   'shrink-window)
 (setq split-height-threshold 1200)
