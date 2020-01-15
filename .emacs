@@ -79,6 +79,9 @@
 (wrap-region-add-wrapper "<<" ">>" "й" 'latex-mode)
 (wrap-region-add-wrapper "\\textbf{" "}" "и" 'latex-mode)
 
+(wrap-region-add-wrapper "\\'{" "}" "'" 'latex-mode)
+(wrap-region-add-wrapper "\\'{" "}" "э" 'latex-mode)
+
 
 ;; imenu
 (setq imenu-auto-rescan t)
