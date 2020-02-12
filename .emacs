@@ -68,7 +68,11 @@
 ;; (wrap-region-add-wrapper "\\begin{code}" "\\end{code}" "c"   'latex-mode)
 ;; (wrap-region-add-wrapper "\\hl{" "}" "h"   'latex-mode)
 
-(wrap-region-add-wrapper "\\begin{verbatim}" "\\end{verbatim}" "c"   'latex-mode)
+;; (wrap-region-add-wrapper "\\begin{verbatim}" "\\end{verbatim}" "c"   'latex-mode)
+(wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "c"   'latex-mode)
+
+(wrap-region-add-wrapper "$\\langle$" "$\\rangle$" "<" 'latex-mode)
+
 (wrap-region-add-wrapper "\\spverb|" "|" "h" 'latex-mode)
 (wrap-region-add-wrapper "\\emph{" "}" "e" 'latex-mode)
 (wrap-region-add-wrapper "<<" ">>" "q" 'latex-mode)
@@ -305,7 +309,7 @@
 (setq indent-line-function 'insert-tab)
 (setq multi-term-program "/bin/bash")
 (put 'downcase-region 'disabled nil)
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 140
 
 ;; global keys
 (global-unset-key "\C-z") ;; it crushes my Emacs
