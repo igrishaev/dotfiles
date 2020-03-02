@@ -70,6 +70,7 @@
 
 ;; (wrap-region-add-wrapper "\\begin{verbatim}" "\\end{verbatim}" "c"   'latex-mode)
 (wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "c"   'latex-mode)
+(wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "с"   'latex-mode)
 
 (wrap-region-add-wrapper "$\\langle$" "$\\rangle$" "<" 'latex-mode)
 
@@ -376,6 +377,7 @@
 (define-key input-decode-map [?\C-\]] (kbd "<C-]>"))
 (define-key input-decode-map [?\C-\'] (kbd "<C-'>"))
 
+(global-set-key (kbd "M-i")   'ispell)
 (global-set-key (kbd "C-o")   'other-window)
 (global-set-key (kbd "C-v")   'split-window-horizontally)
 (global-set-key (kbd "C-h")   'split-window-vertically)
