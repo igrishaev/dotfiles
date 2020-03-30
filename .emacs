@@ -302,6 +302,8 @@
 (global-set-key (kbd "C-c i") #'er/mark-inside-pairs)
 (global-set-key (kbd "C-c o") #'er/mark-outside-pairs)
 (global-set-key (kbd "C-c w") #'er/mark-method-call)
+(global-set-key (kbd "M-r") #'er/mark-word)
+(global-set-key (kbd "M-o") #'er/mark-outside-pairs)
 
 ;; common
 (delete-selection-mode t)
@@ -310,7 +312,7 @@
 (setq indent-line-function 'insert-tab)
 (setq multi-term-program "/bin/bash")
 (put 'downcase-region 'disabled nil)
-(set-face-attribute 'default nil :height 140
+(set-face-attribute 'default nil :height 170)
 
 ;; global keys
 (global-unset-key "\C-z") ;; it crushes my Emacs
