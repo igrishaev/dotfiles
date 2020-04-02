@@ -87,6 +87,8 @@
 (wrap-region-add-wrapper "\\'{" "}" "'" 'latex-mode)
 (wrap-region-add-wrapper "\\'{" "}" "э" 'latex-mode)
 
+(wrap-region-add-wrapper "\\\"{" "}" "\\" 'latex-mode)
+
 
 ;; imenu
 (setq imenu-auto-rescan t)
@@ -304,6 +306,9 @@
 (global-set-key (kbd "C-c w") #'er/mark-method-call)
 (global-set-key (kbd "M-r") #'er/mark-word)
 (global-set-key (kbd "M-o") #'er/mark-outside-pairs)
+
+;; files
+(global-set-key (kbd "M-p") #'projectile-find-file)
 
 ;; common
 (delete-selection-mode t)
