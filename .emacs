@@ -65,6 +65,9 @@
 (wrap-region-add-wrapper "[" "]" "х"   'markdown-mode) ;; [] cyrillic
 
 ;; LaTex/Clojure book
+
+(add-hook 'latex-mode-hook #'wrap-region-mode)
+
 ;; (wrap-region-add-wrapper "\\begin{code}" "\\end{code}" "c"   'latex-mode)
 ;; (wrap-region-add-wrapper "\\hl{" "}" "h"   'latex-mode)
 
@@ -74,6 +77,9 @@
 
 (wrap-region-add-wrapper "$\\langle$" "$\\rangle$" "<" 'latex-mode)
 
+(wrap-region-add-wrapper "\\index{" "}" "i" 'latex-mode)
+(wrap-region-add-wrapper "\\index{" "}" "ш" 'latex-mode)
+
 (wrap-region-add-wrapper "\\spverb|" "|" "h" 'latex-mode)
 (wrap-region-add-wrapper "\\emph{" "}" "e" 'latex-mode)
 (wrap-region-add-wrapper "<<" ">>" "q" 'latex-mode)
@@ -81,6 +87,10 @@
 
 (wrap-region-add-wrapper "\\spverb|" "|" "р" 'latex-mode)
 (wrap-region-add-wrapper "\\emph{" "}" "у" 'latex-mode)
+
+(wrap-region-add-wrapper "\\texttt{" "}" "t" 'latex-mode)
+(wrap-region-add-wrapper "\\texttt{" "}" "е" 'latex-mode)
+
 (wrap-region-add-wrapper "<<" ">>" "й" 'latex-mode)
 (wrap-region-add-wrapper "\\textbf{" "}" "и" 'latex-mode)
 
@@ -189,7 +199,7 @@
 (setenv "PYTHONDONTWRITEBYTECODE" "1")
 (setq python-check-command "flake8 --max-line-length=80 --count") ;; pylint
 (add-hook 'python-mode-hook #'outline-minor-mode)
-(add-hook 'python-mode-hook #'anaconda-mode)
+;; (add-hook 'python-mode-hook #'anaconda-mode)
 (add-hook 'python-mode-hook #'hl-trace)
 (add-hook 'python-mode-hook #'ruler-mode)
 (add-hook 'python-mode-hook (lambda () (set-fill-column 80)))
