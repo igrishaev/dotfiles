@@ -75,6 +75,8 @@
 (wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "c"   'latex-mode)
 (wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "с"   'latex-mode)
 
+(wrap-region-add-wrapper "\\begin{figure}[h]" "\\end{figure}" "f"   'latex-mode)
+
 (wrap-region-add-wrapper "$\\langle$" "$\\rangle$" "<" 'latex-mode)
 
 (wrap-region-add-wrapper "\\index{" "}" "i" 'latex-mode)
