@@ -82,13 +82,18 @@
 (wrap-region-add-wrapper "\\index{" "}" "i" 'latex-mode)
 (wrap-region-add-wrapper "\\index{" "}" "ш" 'latex-mode)
 
-(wrap-region-add-wrapper "\\spverb|" "|" "h" 'latex-mode)
+(wrap-region-add-wrapper "\\verb|" "|" "h" 'latex-mode)
 (wrap-region-add-wrapper "\\emph{" "}" "e" 'latex-mode)
 (wrap-region-add-wrapper "<<" ">>" "q" 'latex-mode)
 (wrap-region-add-wrapper "\\textbf{" "}" "b" 'latex-mode)
 
-(wrap-region-add-wrapper "\\spverb|" "|" "р" 'latex-mode)
+(wrap-region-add-wrapper "~" "" "t" 'latex-mode)
+
+(wrap-region-add-wrapper "\\verb|" "|" "р" 'latex-mode)
 (wrap-region-add-wrapper "\\emph{" "}" "у" 'latex-mode)
+
+(wrap-region-add-wrapper "\\hyphenation{" "}" "y" 'latex-mode)
+(wrap-region-add-wrapper "\\hyphenation{" "}" "н" 'latex-mode)
 
 (wrap-region-add-wrapper "\\texttt{" "}" "t" 'latex-mode)
 (wrap-region-add-wrapper "\\texttt{" "}" "е" 'latex-mode)
