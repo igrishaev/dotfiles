@@ -147,9 +147,8 @@
       (concat user-emacs-directory "bookmarks"))
 
 ;; helm
-(helm-mode 1)
+;; (helm-mode 1)
 (global-set-key (kbd "<M-return>") 'helm-etags-select)
-(global-set-key (kbd "<C-M-return>") 'select-tags-table)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; OS copy-paste
@@ -180,6 +179,8 @@
     (set (make-local-variable 'sgml-basic-offset) 4)))
 
 ;; tags
+(global-set-key (kbd "<C-M-return>") 'select-tags-table)
+
 (defun tags-create (dir-name)
   (interactive "DDirectory: ")
   (let ((path (directory-file-name dir-name)))
@@ -210,6 +211,9 @@
 (add-hook 'python-mode-hook #'hl-trace)
 (add-hook 'python-mode-hook #'ruler-mode)
 (add-hook 'python-mode-hook (lambda () (set-fill-column 80)))
+
+;; files
+(setq vc-follow-symlinks t)
 
 ;; todos
 (defun hl-todos ()
