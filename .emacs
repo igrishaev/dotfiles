@@ -232,6 +232,11 @@
 (setq cider-font-lock-dynamically nil)
 (setq cider-repl-use-pretty-printing t)
 
+;; clojure wrappers
+(add-hook 'cider-mode-hook #'wrap-region-mode)
+(wrap-region-add-wrapper "(clojure.inspector/inspect-tree" ")" "i" 'cider-mode)
+
+
 ;; clojurescript mode
 (add-hook 'clojurescript-mode #'paredit-mode)
 
