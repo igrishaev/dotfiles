@@ -10,7 +10,10 @@ export ZSH="/Users/ivan/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-export GPG_TTY=$(tty)
+# GPG
+GNUPGHOME=~/.gnupg
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
