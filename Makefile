@@ -12,7 +12,8 @@ brew-install-cli:
 	    zsh \
 	    gettext \
 	    gpg \
-		pinentry-mac
+		pinentry-mac \
+		ctags
 
 brew-install-app:
 	brew cask install \
@@ -25,4 +26,10 @@ brew-install-app:
 	    java \
 	    docker \
 	    kdiff3 \
-        telegram
+        telegram \
+		symboliclinker \
+		vlc \
+		obs \
+		microsoft-excel \
+		microsoft-word \
+		sublime-text
