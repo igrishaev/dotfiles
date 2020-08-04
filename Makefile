@@ -30,6 +30,7 @@ brew-install-app:
 		symboliclinker \
 		vlc \
 		obs \
+		karabiner-elements \
 		microsoft-excel \
 		microsoft-word \
 		sublime-text
