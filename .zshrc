@@ -15,6 +15,9 @@ GNUPGHOME=~/.gnupg
 GPG_TTY=$(tty)
 export GPG_TTY
 
+# Exoscale
+alias findhost='ssh exoadmin@infra-dns003.gv2.p.exoscale.net findhost \$1\'
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
