@@ -20,7 +20,7 @@ brew-install-app:
 		1password \
 		iterm2 \
 		google-chrome \
-		firefox
+		firefox \
 		slack \
 		emacs \
 		java \
