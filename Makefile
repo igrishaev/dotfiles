@@ -11,8 +11,8 @@ brew-install-cli:
 	    markdown \
 	    zsh \
 	    gettext \
-	    gpg
-
+	    gpg \
+		pinentry-mac
 
 brew-install-app:
 	brew cask install \
