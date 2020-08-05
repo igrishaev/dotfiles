@@ -18,6 +18,7 @@ brew-install-cli:
 brew-install-app:
 	brew cask install \
 		1password \
+		opensc \
 		iterm2 \
 		google-chrome \
 		firefox \
