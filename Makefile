@@ -13,7 +13,9 @@ brew-install-cli:
 		gettext \
 		gpg \
 		pinentry-mac \
-		ctags
+		ctags \
+		aspell
+		clojure \
 
 brew-install-app:
 	brew cask install \
@@ -34,7 +36,8 @@ brew-install-app:
 		karabiner-elements \
 		microsoft-excel \
 		microsoft-word \
-		sublime-text
+		sublime-text \
+		zoomus
 
 install-ohmyzsh:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
