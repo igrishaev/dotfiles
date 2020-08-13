@@ -235,8 +235,7 @@
 
 ;; clojure wrappers
 (add-hook 'cider-mode-hook #'wrap-region-mode)
-(wrap-region-add-wrapper "(clojure.inspector/inspect-tree" ")" "i" 'cider-mode)
-
+(wrap-region-add-wrapper "(clojure.inspector/inspect-tree" ")" "i" 'clojure-mode)
 
 ;; clojurescript mode
 (add-hook 'clojurescript-mode #'paredit-mode)
