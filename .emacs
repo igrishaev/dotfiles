@@ -115,7 +115,7 @@
 ;; ido
 (ido-mode t)
 (icomplete-mode t)
-(ido-everywhere t)
+;; (ido-everywhere t)
 (setq ido-virtual-buffers t)
 (setq ido-enable-flex-matching t)
 
@@ -148,7 +148,7 @@
       (concat user-emacs-directory "bookmarks"))
 
 ;; helm
-;; (helm-mode 1)
+(helm-mode 1)
 (global-set-key (kbd "<M-return>") 'helm-etags-select)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x f") 'helm-find-files)
