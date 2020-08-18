@@ -15,6 +15,7 @@
         projectile
         clojure-mode
         expand-region
+        gist
         helm
         jinja2-mode
         magit
@@ -235,7 +236,7 @@
 
 ;; clojure wrappers
 (add-hook 'cider-mode-hook #'wrap-region-mode)
-(wrap-region-add-wrapper "(clojure.inspector/inspect-tree" ")" "i" 'clojure-mode)
+(wrap-region-add-wrapper "(clojure.inspector/inspect-tree " ")" "i" 'clojure-mode)
 
 ;; clojurescript mode
 (add-hook 'clojurescript-mode #'paredit-mode)
