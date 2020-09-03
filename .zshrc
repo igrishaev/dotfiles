@@ -10,14 +10,6 @@ export ZSH="/Users/ivan/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# GPG
-GNUPGHOME=~/.gnupg
-GPG_TTY=$(tty)
-export GPG_TTY
-
-# Exoscale
-alias findhost='ssh exoadmin@infra-dns003.gv2.p.exoscale.net findhost \$1\'
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -85,7 +77,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -105,3 +97,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#
+# GPG
+#
+
+GNUPGHOME=~/.gnupg
+GPG_TTY=$(tty)
+export GPG_TTY
+
+
+#
+# Exoscale
+#
+alias findhost='ssh exoadmin@infra-dns003.gv2.p.exoscale.net findhost \$1\'
+alias kargo='java -jar /Users/ivan/work/exoscale/kargo/target/kargo-0.1.32-SNAPSHOT-standalone.jar'
