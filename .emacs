@@ -1,3 +1,10 @@
+
+;; blank lines
+;; M-x flush-lines RET ^$ RET
+
+;; whilespace lines
+;; M-x flush-lines RET ^\s-*$ RET
+
 ;; packages
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -426,6 +433,8 @@
 (global-set-key (kbd "M-n")   'cider-repl-set-ns)
 (global-set-key (kbd "M-m")   'magit-status)
 (global-set-key (kbd "M-t")   'cider-test-run-test)
+(global-set-key (kbd "M-p")   'projectile-find-file)
+;; (global-set-key (kbd "C-M-i")   'ido-mode)
 
 
 (custom-set-variables
