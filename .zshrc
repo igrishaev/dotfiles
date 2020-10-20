@@ -70,6 +70,8 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+DISABLE_AUTO_UPDATE="true"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -100,6 +102,8 @@ export LANG=en_US.UTF-8
 
 
 alias orig='find . -name "*.orig" -delete'
+
+export ICLOUD='/Users/ivan/Library/Mobile Documents/com~apple~CloudDocs'
 
 #
 # GPG
