@@ -104,6 +104,9 @@ export LANG=en_US.UTF-8
 alias orig='find . -name "*.orig" -delete'
 
 export ICLOUD='/Users/ivan/Library/Mobile Documents/com~apple~CloudDocs'
+export OPENEMU='/Users/ivan/Library/Application Support/OpenEmu'
+export PHOTOS='/Users/ivan/Pictures/Photos Library.photoslibrary'
+
 
 #
 # GPG

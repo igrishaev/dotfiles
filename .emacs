@@ -411,6 +411,9 @@
 ;; remapping
 (setq mac-command-modifier 'control)
 
+;; misc
+(setq grep-save-buffers nil)
+
 ;; custom keys
 (define-key input-decode-map "\C-m" [C-m])
 (define-key input-decode-map "\C-i" [C-i])
