@@ -253,6 +253,7 @@
           (lambda ()
             (toggle-truncate-lines t)))
 
+
 ;; aliases
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'rs 'replace-string)
@@ -413,6 +414,11 @@
 
 ;; misc
 (setq grep-save-buffers nil)
+(global-visual-line-mode)
+
+;; files & buffers
+(global-set-key (kbd "C-m") 'helm-buffers-list) ;; switch-to-buffer
+(global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
 
 ;; custom keys
 (define-key input-decode-map "\C-m" [C-m])
@@ -426,7 +432,6 @@
 (global-set-key (kbd "C-v")   'split-window-horizontally)
 (global-set-key (kbd "C-h")   'split-window-vertically)
 (global-set-key (kbd "C-t")   'delete-other-windows)
-(global-set-key (kbd "<C-m>") 'switch-to-buffer)
 (global-set-key (kbd "C-,")   (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-.")   (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "<C-[>") 'backward-word)
