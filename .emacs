@@ -417,16 +417,18 @@
 (global-visual-line-mode)
 
 ;; files & buffers
-(global-set-key (kbd "C-m") 'helm-buffers-list) ;; switch-to-buffer
+(global-set-key (kbd "<C-m>") 'helm-buffers-list) ;; switch-to-buffers
 (global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
 
+
 ;; custom keys
-(define-key input-decode-map "\C-m" [C-m])
+;; (define-key input-decode-map "\C-m" [C-m])
 (define-key input-decode-map "\C-i" [C-i])
 (define-key input-decode-map [?\C-\[] (kbd "<C-[>"))
 (define-key input-decode-map [?\C-\]] (kbd "<C-]>"))
 (define-key input-decode-map [?\C-\'] (kbd "<C-'>"))
 
+(global-set-key (kbd "RET")   'newline-and-indent)
 (global-set-key (kbd "M-i")   'ispell)
 (global-set-key (kbd "C-o")   'other-window)
 (global-set-key (kbd "C-v")   'split-window-horizontally)
