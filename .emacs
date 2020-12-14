@@ -313,6 +313,7 @@
 (setq word-wrap t)
 (setq truncate-lines t)
 (setq truncate-partial-width-windows t)
+(setq global-visual-line-mode nil)
 
 ;; no backups
 (setq auto-save-default nil)
@@ -454,7 +455,9 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete))))
+    (0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete)))
+ '(truncate-lines t)
+ '(truncate-partial-width-windows nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
