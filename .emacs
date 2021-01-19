@@ -85,6 +85,11 @@
 (wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "c"   'latex-mode)
 (wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "с"   'latex-mode)
 
+
+(wrap-region-add-wrapper "\\ifx\\DEVICETYPE\\MOBILE\n" "\\else \n\\fi " "m"   'latex-mode)
+
+
+
 (wrap-region-add-wrapper "\\begin{figure}[h]" "\\end{figure}" "f"   'latex-mode)
 
 (wrap-region-add-wrapper "$\\langle$" "$\\rangle$" "<" 'latex-mode)
@@ -291,6 +296,7 @@
 (require 'font-lock)
 (global-font-lock-mode t)
 (setq font-lock-maximum-decoration t)
+(set-face-attribute 'default nil :height 150)
 
 ;; pairs
 (electric-pair-mode t)

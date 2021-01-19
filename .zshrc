@@ -117,6 +117,8 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 
+alias whoseport='function _fn(){ lsof -i 4tcp:$1 -sTCP:LISTEN };_fn'
+
 #
 # Exoscale
 #
