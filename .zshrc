@@ -108,6 +108,15 @@ export OPENEMU='/Users/ivan/Library/Application Support/OpenEmu'
 export PHOTOS='/Users/ivan/Pictures/Photos Library.photoslibrary'
 
 
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+
+#
+# Python
+#
+
+export PIP_DISABLE_PIP_VERSION_CHECK=1
+
 #
 # GPG
 #
@@ -117,7 +126,14 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 
-alias whoseport='function _fn(){ lsof -i 4tcp:$1 -sTCP:LISTEN };_fn'
+function whoseport(){
+    lsof -i 4tcp:$1 -sTCP:LISTEN
+}
+
+function gen_pass(){
+    pwgen -N 1 -cn 20
+}
+
 
 #
 # Exoscale

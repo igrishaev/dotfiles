@@ -166,6 +166,13 @@
 (global-set-key (kbd "<M-return>") 'helm-etags-select)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+;; empty lines
+
+(defun drop-empty-lines ()
+  (interactive)
+  (flush-lines "^$"))
+
+
 ;; OS copy-paste
 (defun pbcopy ()
   (interactive)
@@ -461,7 +468,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete)))
+    (dockerfile-mode 0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete)))
  '(truncate-lines t)
  '(truncate-partial-width-windows nil))
 (custom-set-faces
