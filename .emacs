@@ -32,6 +32,7 @@
         yaml-mode
         json-mode
         groovy-mode
+        dockerfile-mode
         ))
 
 (dolist (pkg my-packages)

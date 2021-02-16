@@ -134,6 +134,11 @@ function gen_pass(){
     pwgen -N 1 -cn 20
 }
 
+function del_orig(){
+    find . -name '*.orig' -delete
+}
+
+
 
 #
 # Exoscale
