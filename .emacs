@@ -33,6 +33,7 @@
         json-mode
         groovy-mode
         dockerfile-mode
+        helm-cider
         ))
 
 (dolist (pkg my-packages)
@@ -379,8 +380,8 @@
 (setq exec-path (append exec-path '("/usr/local/bin" "/Library/TeX/texbin")))
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Library/TeX/texbin"))
 
-(global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
-(global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
+;; (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
+;; (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
 
 ;; tabs
 (setq-default indent-tabs-mode nil)
@@ -461,6 +462,18 @@
 (global-set-key (kbd "M-p")   'projectile-find-file)
 ;; (global-set-key (kbd "C-M-i")   'ido-mode)
 
+(global-set-key (kbd "C-M-n")   'switch-to-next-buffer)
+(global-set-key (kbd "C-M-p")   'switch-to-prev-buffer)
+
+
+;; http://snowsyn.net/2018/10/21/buffer-ordering-with-helm/
+(defun nm-around-helm-buffers-sort-transformer (candidates source)
+  candidates)
+
+(advice-add
+ 'helm-buffers-sort-transformer
+ :override #'nm-around-helm-buffers-sort-transformer)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -469,7 +482,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dockerfile-mode 0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete)))
+    (helm-cider dockerfile-mode 0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete)))
  '(truncate-lines t)
  '(truncate-partial-width-windows nil))
 (custom-set-faces
