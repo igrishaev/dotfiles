@@ -1,4 +1,5 @@
 
+
 ;; blank lines
 ;; M-x flush-lines RET ^$ RET
 
@@ -23,7 +24,7 @@
         clojure-mode
         expand-region
         gist
-        helm
+        ;; helm
         jinja2-mode
         magit
         markdown-mode
@@ -33,7 +34,7 @@
         json-mode
         groovy-mode
         dockerfile-mode
-        helm-cider
+        ;; helm-cider
         ))
 
 (dolist (pkg my-packages)
@@ -75,6 +76,8 @@
 (wrap-region-add-wrapper "**" "**" "и" 'markdown-mode) ;; same, cyrillic
 (wrap-region-add-wrapper "[" "]" "х"   'markdown-mode) ;; [] cyrillic
 
+(wrap-region-add-wrapper "{% include static.html path=\"" "\" %}" "s" 'markdown-mode) ;; blog static
+
 
 ;; LaTex/Clojure book
 
@@ -82,14 +85,13 @@
 
 ;; (wrap-region-add-wrapper "\\begin{code}" "\\end{code}" "c"   'latex-mode)
 ;; (wrap-region-add-wrapper "\\hl{" "}" "h"   'latex-mode)
-
 ;; (wrap-region-add-wrapper "\\begin{verbatim}" "\\end{verbatim}" "c"   'latex-mode)
-(wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "c"   'latex-mode)
-(wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "с"   'latex-mode)
+
+(wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "l"   'latex-mode)
+(wrap-region-add-wrapper "\\begin{english}\n  \\begin{clojure}" "  \\end{clojure}\n\\end{english}" "д"   'latex-mode)
 
 
 (wrap-region-add-wrapper "\\ifx\\DEVICETYPE\\MOBILE\n" "\\else \n\\fi " "m"   'latex-mode)
-
 
 
 (wrap-region-add-wrapper "\\begin{figure}[h]" "\\end{figure}" "f"   'latex-mode)
@@ -104,6 +106,8 @@
 (wrap-region-add-wrapper "<<" ">>" "q" 'latex-mode)
 (wrap-region-add-wrapper "\\textbf{" "}" "b" 'latex-mode)
 
+(wrap-region-add-wrapper "``" "''" "`" 'latex-mode)
+
 (wrap-region-add-wrapper "~" "" "t" 'latex-mode)
 
 (wrap-region-add-wrapper "\\verb|" "|" "р" 'latex-mode)
@@ -112,8 +116,14 @@
 (wrap-region-add-wrapper "\\hyphenation{" "}" "y" 'latex-mode)
 (wrap-region-add-wrapper "\\hyphenation{" "}" "н" 'latex-mode)
 
+(wrap-region-add-wrapper "\\" "/" "\\" 'latex-mode)
+(wrap-region-add-wrapper "\\" "/" "/" 'latex-mode)
+
 (wrap-region-add-wrapper "\\texttt{" "}" "t" 'latex-mode)
 (wrap-region-add-wrapper "\\texttt{" "}" "е" 'latex-mode)
+
+(wrap-region-add-wrapper "\\code{" "}" "c" 'latex-mode)
+(wrap-region-add-wrapper "\\code{" "}" "с" 'latex-mode)
 
 (wrap-region-add-wrapper "<<" ">>" "й" 'latex-mode)
 (wrap-region-add-wrapper "\\textbf{" "}" "и" 'latex-mode)
@@ -126,12 +136,61 @@
 
 ;; imenu
 (setq imenu-auto-rescan t)
-(setq imenu-use-popup-menu nil)
+(setq imenu-use-popup-menu t)
+
+;; https://www.emacswiki.org/emacs/ImenuMode
+(defun ido-goto-symbol (&optional symbol-list)
+  "Refresh imenu and jump to a place in the buffer using Ido."
+  (interactive)
+  (unless (featurep 'imenu)
+    (require 'imenu nil t))
+  (cond
+    ((not symbol-list)
+     (let ((ido-mode ido-mode)
+           (ido-enable-flex-matching
+            (if (boundp 'ido-enable-flex-matching)
+                ido-enable-flex-matching t))
+           name-and-pos symbol-names position)
+       (unless ido-mode
+         (ido-mode 1)
+         (setq ido-enable-flex-matching t))
+       (while (progn
+                (imenu--cleanup)
+                (setq imenu--index-alist nil)
+                (ido-goto-symbol (imenu--make-index-alist))
+                (setq selected-symbol
+                      (ido-completing-read "Symbol? " symbol-names))
+                (string= (car imenu--rescan-item) selected-symbol)))
+       (unless (and (boundp 'mark-active) mark-active)
+         (push-mark nil t nil))
+       (setq position (cdr (assoc selected-symbol name-and-pos)))
+       (cond
+         ((overlayp position)
+          (goto-char (overlay-start position)))
+         (t
+          (goto-char position)))))
+    ((listp symbol-list)
+     (dolist (symbol symbol-list)
+       (let (name position)
+         (cond
+           ((and (listp symbol) (imenu--subalist-p symbol))
+            (ido-goto-symbol symbol))
+           ((listp symbol)
+            (setq name (car symbol))
+            (setq position (cdr symbol)))
+           ((stringp symbol)
+            (setq name symbol)
+            (setq position
+                  (get-text-property 1 'org-imenu-marker symbol))))
+         (unless (or (null position) (null name)
+                     (string= (car imenu--rescan-item) name))
+           (add-to-list 'symbol-names name)
+           (add-to-list 'name-and-pos (cons name position))))))))
 
 ;; ido
 (ido-mode t)
 (icomplete-mode t)
-;; (ido-everywhere t)
+(ido-everywhere t)
 (setq ido-virtual-buffers t)
 (setq ido-enable-flex-matching t)
 
@@ -163,10 +222,29 @@
 (setq bookmark-default-file
       (concat user-emacs-directory "bookmarks"))
 
+;; speedbar
+(global-set-key (kbd "M-s") 'speedbar-get-focus)
+
 ;; helm
-(helm-mode 1)
-(global-set-key (kbd "<M-return>") 'helm-etags-select)
-(global-set-key (kbd "M-x") 'helm-M-x)
+;; (helm-mode 1)
+;; (global-set-key (kbd "<M-return>") 'helm-etags-select)
+;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; (defalias 'him 'helm-imenu)
+;; (global-set-key (kbd "<C-m>")   'helm-buffers-list) ;; switch-to-buffers
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
+;; (global-set-key (kbd "<C-i>") 'helm-imenu)
+;; (global-set-key (kbd "<C-'>") 'helm-etags-select)
+;; http://snowsyn.net/2018/10/21/buffer-ordering-with-helm/
+;; (defun nm-around-helm-buffers-sort-transformer (candidates source)
+;;   candidates)
+
+;; (advice-add
+;;  'helm-buffers-sort-transformer
+;;  :override #'nm-around-helm-buffers-sort-transformer)
+
+
+(global-set-key (kbd "<C-m>")   'switch-to-buffer)
+(global-set-key (kbd "<C-i>") 'imenu)
 
 ;; empty lines
 
@@ -281,7 +359,6 @@
 (defalias 'mt 'multi-term)
 (defalias 'rb 'rename-buffer)
 (defalias 'rev 'revert-buffer)
-(defalias 'him 'helm-imenu)
 (defalias 'hl 'highlight-phrase)
 (defalias 'hlr 'highlight-regexp)
 (defalias 'uhl 'unhighlight-regexp)
@@ -441,9 +518,6 @@
 (define-key input-decode-map [?\C-\'] (kbd "<C-'>"))
 
 ;; files & buffers
-(global-set-key (kbd "<C-m>")   'helm-buffers-list) ;; switch-to-buffers
-(global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
-
 (global-set-key (kbd "RET")   'newline-and-indent)
 (global-set-key (kbd "M-i")   'ispell)
 (global-set-key (kbd "C-o")   'other-window)
@@ -454,8 +528,6 @@
 (global-set-key (kbd "C-.")   (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "<C-[>") 'backward-word)
 (global-set-key (kbd "<C-]>") 'forward-word)
-(global-set-key (kbd "<C-i>") 'helm-imenu)
-(global-set-key (kbd "<C-'>") 'helm-etags-select)
 (global-set-key (kbd "M-n")   'cider-repl-set-ns)
 (global-set-key (kbd "M-m")   'magit-status)
 (global-set-key (kbd "M-t")   'cider-test-run-test)
@@ -466,13 +538,6 @@
 (global-set-key (kbd "C-M-p")   'switch-to-prev-buffer)
 
 
-;; http://snowsyn.net/2018/10/21/buffer-ordering-with-helm/
-(defun nm-around-helm-buffers-sort-transformer (candidates source)
-  candidates)
-
-(advice-add
- 'helm-buffers-sort-transformer
- :override #'nm-around-helm-buffers-sort-transformer)
 
 
 (custom-set-variables
@@ -482,7 +547,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-cider dockerfile-mode 0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode helm expand-region dedicated cider auto-complete)))
+    (dockerfile-mode 0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete)))
  '(truncate-lines t)
  '(truncate-partial-width-windows nil))
 (custom-set-faces
