@@ -136,7 +136,7 @@
 
 ;; imenu
 (setq imenu-auto-rescan t)
-(setq imenu-use-popup-menu t)
+(setq imenu-use-popup-menu nil)
 
 ;; https://www.emacswiki.org/emacs/ImenuMode
 (defun ido-goto-symbol (&optional symbol-list)
@@ -186,6 +186,8 @@
                      (string= (car imenu--rescan-item) name))
            (add-to-list 'symbol-names name)
            (add-to-list 'name-and-pos (cons name position))))))))
+
+(global-set-key (kbd "<C-i>") 'ido-goto-symbol)
 
 ;; ido
 (ido-mode t)
@@ -244,7 +246,7 @@
 
 
 (global-set-key (kbd "<C-m>")   'switch-to-buffer)
-(global-set-key (kbd "<C-i>") 'imenu)
+;; (global-set-key (kbd "<C-i>") 'imenu)
 
 ;; empty lines
 
