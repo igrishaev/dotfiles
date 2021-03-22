@@ -200,6 +200,19 @@
 (ido-vertical-mode 1)
 (setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
+(global-set-key
+ "\M-x"
+ (lambda ()
+   (interactive)
+   (call-interactively
+    (intern
+     (ido-completing-read "M-x " (all-completions "" obarray 'commandp))))))
+
+;; finder
+(defun show-in-finder ()
+  (interactive)
+  (shell-command (concat "open -R " buffer-file-name)))
+
 ;; buffers
 (require 'bs)
 (require 'ibuffer)
