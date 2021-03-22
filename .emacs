@@ -24,6 +24,7 @@
         clojure-mode
         expand-region
         gist
+        ido-vertical-mode
         ;; helm
         jinja2-mode
         magit
@@ -195,6 +196,9 @@
 (ido-everywhere t)
 (setq ido-virtual-buffers t)
 (setq ido-enable-flex-matching t)
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
 ;; buffers
 (require 'bs)
@@ -540,6 +544,9 @@
 (global-set-key (kbd "C-M-p")   'switch-to-prev-buffer)
 
 
+;; speedbar
+(speedbar)
+(speedbar-toggle-show-all-files)
 
 
 (custom-set-variables
@@ -549,7 +556,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dockerfile-mode 0blayout auctex highlight slime gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete)))
+    (ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete)))
  '(truncate-lines t)
  '(truncate-partial-width-windows nil))
 (custom-set-faces
