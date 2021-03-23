@@ -138,6 +138,10 @@ function del_orig(){
     find . -name '*.orig' -delete
 }
 
+function emacs_wakeup(){
+    pkill -SIGUSR2 emacs
+}
+
 
 
 #
