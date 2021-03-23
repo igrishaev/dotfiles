@@ -241,8 +241,6 @@
 (setq bookmark-default-file
       (concat user-emacs-directory "bookmarks"))
 
-;; speedbar
-(global-set-key (kbd "M-s") 'speedbar-get-focus)
 
 ;; helm
 ;; (helm-mode 1)
@@ -560,6 +558,7 @@
 ;; speedbar
 (speedbar)
 (speedbar-toggle-show-all-files)
+(global-set-key (kbd "C-M-s") 'speedbar-get-focus)
 
 
 (custom-set-variables
