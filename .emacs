@@ -25,7 +25,7 @@
         expand-region
         gist
         ido-vertical-mode
-        ;; helm
+        helm
         jinja2-mode
         magit
         markdown-mode
@@ -188,7 +188,7 @@
            (add-to-list 'symbol-names name)
            (add-to-list 'name-and-pos (cons name position))))))))
 
-(global-set-key (kbd "<C-i>") 'ido-goto-symbol)
+;; (global-set-key (kbd "<C-i>") 'ido-goto-symbol)
 
 ;; ido
 (ido-mode t)
@@ -243,24 +243,25 @@
 
 
 ;; helm
-;; (helm-mode 1)
-;; (global-set-key (kbd "<M-return>") 'helm-etags-select)
-;; (global-set-key (kbd "M-x") 'helm-M-x)
-;; (defalias 'him 'helm-imenu)
-;; (global-set-key (kbd "<C-m>")   'helm-buffers-list) ;; switch-to-buffers
-;; (global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
-;; (global-set-key (kbd "<C-i>") 'helm-imenu)
-;; (global-set-key (kbd "<C-'>") 'helm-etags-select)
+(helm-mode 1)
+(global-set-key (kbd "<M-return>") 'helm-etags-select)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(defalias 'him 'helm-imenu)
+(global-set-key (kbd "<C-m>")   'helm-buffers-list) ;; switch-to-buffers
+(global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
+(global-set-key (kbd "<C-i>") 'helm-imenu)
+(global-set-key (kbd "<C-'>") 'helm-etags-select)
+
 ;; http://snowsyn.net/2018/10/21/buffer-ordering-with-helm/
-;; (defun nm-around-helm-buffers-sort-transformer (candidates source)
-;;   candidates)
+(defun nm-around-helm-buffers-sort-transformer (candidates source)
+  candidates)
 
-;; (advice-add
-;;  'helm-buffers-sort-transformer
-;;  :override #'nm-around-helm-buffers-sort-transformer)
+(advice-add
+ 'helm-buffers-sort-transformer
+ :override #'nm-around-helm-buffers-sort-transformer)
 
 
-(global-set-key (kbd "<C-m>")   'switch-to-buffer)
+;; (global-set-key (kbd "<C-m>")   'switch-to-buffer)
 ;; (global-set-key (kbd "<C-i>") 'imenu)
 
 ;; empty lines
