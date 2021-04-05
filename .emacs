@@ -251,6 +251,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
 (global-set-key (kbd "<C-i>") 'helm-imenu)
 (global-set-key (kbd "<C-'>") 'helm-etags-select)
+(setq helm-buffer-max-length 30)
 
 ;; http://snowsyn.net/2018/10/21/buffer-ordering-with-helm/
 (defun nm-around-helm-buffers-sort-transformer (candidates source)

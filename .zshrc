@@ -143,6 +143,9 @@ function emacs_wakeup(){
     pkill -SIGUSR2 emacs
 }
 
+function git_clean(){
+    git clean -df
+}
 
 
 #
