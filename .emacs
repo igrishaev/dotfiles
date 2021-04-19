@@ -243,7 +243,7 @@
 
 
 ;; helm
-(helm-mode 1)
+;; (helm-mode 1)
 (global-set-key (kbd "<M-return>") 'helm-etags-select)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (defalias 'him 'helm-imenu)

@@ -140,8 +140,13 @@ function del_orig(){
 
 # https://irreal.org/blog/?p=4763
 function emacs_wakeup(){
-    pkill -SIGUSR2 emacs
+    pkill -SIGUSR2 Emacs
 }
+
+function emacs_term(){
+    pkill -SIGTERM Emacs
+}
+
 
 function git_clean(){
     git clean -df
