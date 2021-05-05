@@ -25,7 +25,7 @@
         expand-region
         gist
         ido-vertical-mode
-        helm
+        ;; helm
         jinja2-mode
         magit
         markdown-mode
