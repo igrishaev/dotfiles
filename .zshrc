@@ -111,6 +111,8 @@ export PHOTOS='/Users/ivan/Pictures/Photos Library.photoslibrary'
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 
+export EDITOR=mcedit
+
 #
 # Python
 #
