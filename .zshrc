@@ -160,3 +160,4 @@ function git_clean(){
 #
 alias findhost='ssh exoadmin@infra-dns003.gv2.p.exoscale.net findhost \$1\'
 alias kargo='java -jar /Users/ivan/work/exoscale/kargo/target/kargo-0.1.32-SNAPSHOT-standalone.jar'
+module_init

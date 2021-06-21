@@ -9,3 +9,4 @@ html-docs
 Makefile.local
 .eastwood
 docker-compose.local.yml
+*.orig
