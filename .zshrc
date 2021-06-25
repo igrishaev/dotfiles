@@ -100,6 +100,7 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias uuid="uuidgen | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy"
 
 alias orig='find . -name "*.orig" -delete'
 
@@ -110,8 +111,14 @@ export PHOTOS='/Users/ivan/Pictures/Photos Library.photoslibrary'
 
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
+export LEIN_JVM_OPTS="-XX:TieredStopAtLevel=1"
 
 export EDITOR=mcedit
+
+
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 
 #
 # Python
