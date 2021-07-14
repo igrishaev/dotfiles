@@ -244,22 +244,25 @@
 
 ;; helm
 ;; (helm-mode 1)
-(global-set-key (kbd "<M-return>") 'helm-etags-select)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(defalias 'him 'helm-imenu)
-(global-set-key (kbd "<C-m>")   'helm-buffers-list) ;; switch-to-buffers
-(global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
-(global-set-key (kbd "<C-i>") 'helm-imenu)
-(global-set-key (kbd "<C-'>") 'helm-etags-select)
+;; (global-set-key (kbd "<M-return>") 'helm-etags-select)
+;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; (defalias 'him 'helm-imenu)
+;; (global-set-key (kbd "<C-m>")   'helm-buffers-list) ;; switch-to-buffers
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
+(global-set-key (kbd "<C-m>")   'switch-to-buffer)
+(global-set-key (kbd "C-x C-f") 'find-file)
+;; (global-set-key (kbd "<C-i>") 'helm-imenu)
+(global-set-key (kbd "<C-i>") 'imenu)
+;; (global-set-key (kbd "<C-'>") 'helm-etags-select)
 (setq helm-buffer-max-length 30)
 
 ;; http://snowsyn.net/2018/10/21/buffer-ordering-with-helm/
 (defun nm-around-helm-buffers-sort-transformer (candidates source)
   candidates)
 
-(advice-add
- 'helm-buffers-sort-transformer
- :override #'nm-around-helm-buffers-sort-transformer)
+;; (advice-add
+;;  'helm-buffers-sort-transformer
+;;  :override #'nm-around-helm-buffers-sort-transformer)
 
 
 ;; (global-set-key (kbd "<C-m>")   'switch-to-buffer)
@@ -367,6 +370,7 @@
 
 
 ;; aliases
+(defalias 'cc 'cider-connect)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'rs 'replace-string)
 (defalias 'sl 'sort-lines)
@@ -454,7 +458,8 @@
 (global-set-key (kbd "C-c o") #'er/mark-outside-pairs)
 (global-set-key (kbd "C-c w") #'er/mark-method-call)
 (global-set-key (kbd "M-r") #'er/mark-word)
-(global-set-key (kbd "M-o") #'er/mark-outside-pairs)
+;; (global-set-key (kbd "M-o") #'er/mark-outside-pairs)
+
 
 ;; files
 (global-set-key (kbd "M-p") #'projectile-find-file)
@@ -528,6 +533,7 @@
 
 ;; misc
 (setq grep-save-buffers nil)
+(global-set-key (kbd "M-o") #'browse-url-at-point)
 
 ;; custom keys
 (define-key input-decode-map "\C-m" [C-m])
