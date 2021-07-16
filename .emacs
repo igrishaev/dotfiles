@@ -371,6 +371,7 @@
 
 ;; aliases
 (defalias 'cc 'cider-connect)
+(defalias 'cme 'cider-macroexpand-1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'rs 'replace-string)
 (defalias 'sl 'sort-lines)
