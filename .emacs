@@ -355,6 +355,7 @@
 (add-hook 'cider-mode-hook #'hl-todos)
 (setq cider-font-lock-dynamically nil)
 (setq cider-repl-use-pretty-printing t)
+(global-set-key (kbd "C-x C-i ") #'cider-inspect-last-sexp)
 
 ;; clojure wrappers
 (add-hook 'cider-mode-hook #'wrap-region-mode)
