@@ -559,8 +559,8 @@
 (global-set-key (kbd "M-m")   'magit-status)
 (global-set-key (kbd "M-t")   'cider-test-run-test)
 (global-set-key (kbd "M-p")   'projectile-find-file)
+(global-set-key (kbd "M-h")   'hs-toggle-hiding)
 ;; (global-set-key (kbd "C-M-i")   'ido-mode)
-
 (global-set-key (kbd "C-M-n")   'switch-to-next-buffer)
 (global-set-key (kbd "C-M-p")   'switch-to-prev-buffer)
 
