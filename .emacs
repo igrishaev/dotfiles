@@ -27,6 +27,7 @@
         ido-vertical-mode
         ;; helm
         jinja2-mode
+        auto-complete
         magit
         markdown-mode
         paredit
@@ -78,6 +79,11 @@
 (wrap-region-add-wrapper "[" "]" "х"   'markdown-mode) ;; [] cyrillic
 
 (wrap-region-add-wrapper "{% include static.html path=\"" "\" %}" "s" 'markdown-mode) ;; blog static
+
+
+;; auto-complete
+(ac-config-default)
+(setq global-auto-complete-mode t)
 
 
 ;; LaTex/Clojure book
