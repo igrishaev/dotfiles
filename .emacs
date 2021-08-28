@@ -569,6 +569,8 @@
 ;; (global-set-key (kbd "C-M-i")   'ido-mode)
 (global-set-key (kbd "C-M-n")   'switch-to-next-buffer)
 (global-set-key (kbd "C-M-p")   'switch-to-prev-buffer)
+(global-set-key (kbd "C-M-o")   'other-frame)
+(global-set-key (kbd "C-M-f")  'forward-whitespace)
 
 
 ;; speedbar
