@@ -16,6 +16,7 @@
 --langmap=Clojure:+.cljx
 --langmap=Clojure:+.cljs
 
+--regex-clojure=/\([ \t]*ns[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/n,namespace/
 --regex-clojure=/\([ \t]*create-ns[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/n,namespace/
 --regex-clojure=/\([ \t]*def[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/d,definition/
 --regex-clojure=/\([ \t]*defn-?[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/f,function/
@@ -26,6 +27,5 @@
 --regex-clojure=/\([ \t]*defonce[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/c,definition (once)/
 --regex-clojure=/\([ \t]*defstruct[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/s,struct/
 --regex-clojure=/\([ \t]*intern[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/v,intern/
---regex-clojure=/\([ \t]*ns[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/n,namespace/
-
---regex-clojure=/:.+/k,keyword/
+--regex-clojure=/\([ \t]*deftest[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/t,test/
+--regex-clojure=/\([ \t]*s\/def[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/s,spec/
