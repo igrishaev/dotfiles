@@ -108,6 +108,8 @@ export ICLOUD='/Users/ivan/Library/Mobile Documents/com~apple~CloudDocs'
 export OPENEMU='/Users/ivan/Library/Application Support/OpenEmu'
 export PHOTOS='/Users/ivan/Pictures/Photos Library.photoslibrary'
 
+alias py-server='python3 -m http.server 8080 -d .'
+
 alias epoch='date +"%s"'
 
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
