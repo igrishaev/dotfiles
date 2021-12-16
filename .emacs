@@ -262,6 +262,8 @@
 ;; (global-set-key (kbd "<C-'>") 'helm-etags-select)
 (setq helm-buffer-max-length 30)
 
+
+
 ;; http://snowsyn.net/2018/10/21/buffer-ordering-with-helm/
 (defun nm-around-helm-buffers-sort-transformer (candidates source)
   candidates)
@@ -310,6 +312,7 @@
 
 ;; tags
 (global-set-key (kbd "<C-M-return>") 'select-tags-table)
+(global-set-key (kbd "C-;") 'xref-find-apropos)
 
 (defun tags-create (dir-name)
   (interactive "DDirectory: ")

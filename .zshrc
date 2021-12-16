@@ -100,6 +100,8 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias etags="/Applications/Emacs\ 2.app/Contents/MacOS/bin/etags"
+
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy"
 
 alias orig='find . -name "*.orig" -delete'
