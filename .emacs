@@ -25,7 +25,7 @@
         expand-region
         gist
         ido-vertical-mode
-        ;; helm
+        helm
         jinja2-mode
         auto-complete
         magit
@@ -46,6 +46,7 @@
 ;; cider
 ;; (add-to-list 'load-path "~/.emacs.d/cider-0.18.0")
 ;; (add-to-list 'load-path "~/.emacs.d/cider-master")
+;; (add-to-list 'load-path "~/.emacs.d/cider-1.2.0")
 (require 'cider)
 
 ;; credentials
@@ -251,14 +252,14 @@
 ;; helm
 ;; (helm-mode 1)
 ;; (global-set-key (kbd "<M-return>") 'helm-etags-select)
-;; (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-x") 'helm-M-x)
 ;; (defalias 'him 'helm-imenu)
 ;; (global-set-key (kbd "<C-m>")   'helm-buffers-list) ;; switch-to-buffers
 ;; (global-set-key (kbd "C-x C-f") 'helm-find-files) ;; find-file
 (global-set-key (kbd "<C-m>")   'switch-to-buffer)
 (global-set-key (kbd "C-x C-f") 'find-file)
-;; (global-set-key (kbd "<C-i>") 'helm-imenu)
-(global-set-key (kbd "<C-i>") 'imenu)
+(global-set-key (kbd "<C-i>") 'helm-imenu)
+;; (global-set-key (kbd "<C-i>") 'imenu)
 ;; (global-set-key (kbd "<C-'>") 'helm-etags-select)
 (setq helm-buffer-max-length 30)
 
@@ -363,6 +364,7 @@
 (add-hook 'cider-mode-hook #'imenu-add-menubar-index)
 (add-hook 'cider-mode-hook #'hl-todos)
 (setq cider-font-lock-dynamically nil)
+(setq cider-repl-display-help-banner nil)
 (setq cider-repl-use-pretty-printing t)
 (global-set-key (kbd "C-x C-i ") #'cider-inspect-last-sexp)
 
@@ -589,8 +591,7 @@
  ;; If there is more than one, they won't work right.
  '(markdown-command "pandoc")
  '(package-selected-packages
-   (quote
-    (slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete)))
+   '(helm slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete))
  '(truncate-lines t)
  '(truncate-partial-width-windows nil))
 (custom-set-faces

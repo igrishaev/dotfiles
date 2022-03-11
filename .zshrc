@@ -102,6 +102,12 @@ export LANG=en_US.UTF-8
 
 alias etags="/Applications/Emacs\ 2.app/Contents/MacOS/bin/etags"
 
+# alias play="/Applications/VLC.app/Contents/MacOS/VLC -v "
+
+function play(){
+    /Applications/VLC.app/Contents/MacOS/VLC -v $1 &
+}
+
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]' | tr -d '\n' | pbcopy"
 
 alias orig='find . -name "*.orig" -delete'

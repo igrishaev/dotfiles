@@ -12,3 +12,4 @@ docker-compose.local.yml
 *.orig
 .lein-repl-history
 .nrepl-port
+*cider-scratch*
