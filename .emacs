@@ -26,6 +26,8 @@
         gist
         ido-vertical-mode
         helm
+        git-link
+        restclient
         jinja2-mode
         auto-complete
         magit
@@ -358,6 +360,11 @@
 (load-theme 'light-blue t)
 
 ;; clojure
+
+
+(add-hook 'clojure-mode-hook (lambda () (parinfer-rust-mode 1)))
+
+
 (add-hook 'cider-mode-hook (lambda () (show-paren-mode 1)))
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
@@ -583,6 +590,14 @@
 (speedbar-toggle-show-all-files)
 (global-set-key (kbd "C-M-s") 'speedbar-get-focus)
 
+;;
+;; Clashapp
+;;
+
+(defun clash-connect ()
+  (interactive)
+  (cider-connect '(:host "localhost" :port 9656)))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -591,7 +606,26 @@
  ;; If there is more than one, they won't work right.
  '(markdown-command "pandoc")
  '(package-selected-packages
-   '(helm slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete))
+   '(restclient git-link helm slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete))
+ '(safe-local-variable-values
+   '((eval put-clojure-indent 't/skip 1)
+     (eval put-clojure-indent 'skip 1)
+     (eval put-clojure-indent 't/with-system 1)
+     (eval put-clojure-indent 'with-system 1)
+     (eval put-clojure-indent 'measure/time 2)
+     (eval put-clojure-indent 'when-let-ok 1)
+     (eval put-clojure-indent 'when-ok 1)
+     (eval put-clojure-indent 'postgres/with-transaction 1)
+     (eval setenv "CLASH_STAGE" "local")
+     (eval setenv "AWS_LOCAL_SQS" "true")
+     (eval setenv "AWS_REGION" "eu-west-2")
+     (cider-print-options
+      (("print-length" nil)))
+     (cider-print-fn . puget)
+     (cider-ns-refresh-before-fn . "com.stuartsierra.component.repl/stop")
+     (cider-ns-refresh-after-fn . "dev/setup-and-start")
+     (cider-known-endpoints
+      ("localhost" "9656"))))
  '(truncate-lines t)
  '(truncate-partial-width-windows nil))
 (custom-set-faces
