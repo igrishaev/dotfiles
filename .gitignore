@@ -13,3 +13,7 @@ docker-compose.local.yml
 .lein-repl-history
 .nrepl-port
 *cider-scratch*
+
+restclient
+
+scratch.clj

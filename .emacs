@@ -362,7 +362,13 @@
 ;; clojure
 
 
-(add-hook 'clojure-mode-hook (lambda () (parinfer-rust-mode 1)))
+(defun bogus ()
+  (interactive)
+  (insert "#bogus"))
+
+(global-set-key (kbd "C-c b") 'bogus)
+
+;; (add-hook 'clojure-mode-hook (lambda () (parinfer-rust-mode 1)))
 
 
 (add-hook 'cider-mode-hook (lambda () (show-paren-mode 1)))
@@ -373,7 +379,9 @@
 (setq cider-font-lock-dynamically nil)
 (setq cider-repl-display-help-banner nil)
 (setq cider-repl-use-pretty-printing t)
-(global-set-key (kbd "C-x C-i ") #'cider-inspect-last-sexp)
+(global-set-key (kbd "C-x C-i") 'cider-inspect-last-sexp)
+(global-set-key (kbd "C-x .") 'cider-pop-back)
+(global-set-key (kbd "C-x e") 'cider-eval-defun-at-point)
 
 ;; clojure wrappers
 (add-hook 'cider-mode-hook #'wrap-region-mode)
@@ -585,6 +593,12 @@
 (global-set-key (kbd "C-M-e")  'forward-whitespace)
 
 
+;;
+;; Org
+;;
+
+(setq org-confirm-babel-evaluate nil)
+
 ;; speedbar
 (speedbar)
 (speedbar-toggle-show-all-files)
@@ -606,9 +620,10 @@
  ;; If there is more than one, they won't work right.
  '(markdown-command "pandoc")
  '(package-selected-packages
-   '(restclient git-link helm slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete))
+   '(org-sql restclient git-link helm slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete))
  '(safe-local-variable-values
-   '((eval put-clojure-indent 't/skip 1)
+   '((eval put-clojure-indent 'fixtures/bind-system 1)
+     (eval put-clojure-indent 't/skip 1)
      (eval put-clojure-indent 'skip 1)
      (eval put-clojure-indent 't/with-system 1)
      (eval put-clojure-indent 'with-system 1)

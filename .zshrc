@@ -116,6 +116,8 @@ export ICLOUD='/Users/ivan/Library/Mobile Documents/com~apple~CloudDocs'
 export OPENEMU='/Users/ivan/Library/Application Support/OpenEmu'
 export PHOTOS='/Users/ivan/Pictures/Photos Library.photoslibrary'
 
+export PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED=False
+
 alias py-server='python3 -m http.server 8080 -d .'
 
 alias epoch='date +"%s"'
