@@ -24,6 +24,8 @@
         clojure-mode
         expand-region
         gist
+        org-sql
+        ob-http
         ido-vertical-mode
         helm
         git-link
@@ -598,6 +600,9 @@
 ;;
 
 (setq org-confirm-babel-evaluate nil)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((sql . t) (http . t) (emacs-lisp . t)))
 
 ;; speedbar
 (speedbar)
@@ -620,7 +625,7 @@
  ;; If there is more than one, they won't work right.
  '(markdown-command "pandoc")
  '(package-selected-packages
-   '(org-sql restclient git-link helm slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete))
+   '(ob-graphql ob-http org-sql restclient git-link helm slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete))
  '(safe-local-variable-values
    '((eval put-clojure-indent 'fixtures/bind-system 1)
      (eval put-clojure-indent 't/skip 1)
