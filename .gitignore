@@ -18,3 +18,5 @@ restclient
 
 scratch.clj
 psql.org
+
+.cpcache

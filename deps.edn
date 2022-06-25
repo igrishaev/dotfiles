@@ -10,17 +10,20 @@
 ;; Only the last :paths is kept and others are dropped.
 
 {
-  ;; Paths
-  ;;   Directories in the current project to include in the classpath
+ ;; Paths
+ ;;   Directories in the current project to include in the classpath
 
  ;; :paths []
 
  :aliases
- {:local/nrepl
+ {:local/dev
+  {:extra-deps
+   {com.github.igrishaev/bogus {:mvn/version "0.1.9"}}}
+
+  :local/nrepl
   {:extra-deps
    {nrepl/nrepl {:mvn/version "0.9.0"}
-    cider/cider-nrepl {:mvn/version "0.28.3"}
-    com.github.igrishaev/bogus {:mvn/version "0.1.9"}}
+    cider/cider-nrepl {:mvn/version "0.28.3"}}
    :main-opts ["-m" "nrepl.cmdline"
                "--middleware" "[cider.nrepl/cider-middleware]"]}}
 
@@ -28,24 +31,24 @@
 
  ;; External dependencies
 
-  ;; Aliases
-	;;   resolve-deps aliases (-R) affect dependency resolution, options:
-	;;     :extra-deps - specifies extra deps to add to :deps
-	;;     :override-deps - specifies a coordinate to use instead of that in :deps
-	;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
-	;;   make-classpath aliases (-C) affect the classpath generation, options:
-	;;     :extra-paths - vector of additional paths to add to the classpath
-	;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
+ ;; Aliases
+ ;;   resolve-deps aliases (-R) affect dependency resolution, options:
+ ;;     :extra-deps - specifies extra deps to add to :deps
+ ;;     :override-deps - specifies a coordinate to use instead of that in :deps
+ ;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
+ ;;   make-classpath aliases (-C) affect the classpath generation, options:
+ ;;     :extra-paths - vector of additional paths to add to the classpath
+ ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
 
-  ;; :aliases {
-  ;;   :deps {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version "0.9.755"}}}
-  ;;   :test {:extra-paths ["test"]}
-  ;; }
+ ;; :aliases {
+ ;;   :deps {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version "0.9.755"}}}
+ ;;   :test {:extra-paths ["test"]}
+ ;; }
 
-  ;; Provider attributes
+ ;; Provider attributes
 
-  ;; :mvn/repos {
-  ;;   "central" {:url "https://repo1.maven.org/maven2/"}
-  ;;   "clojars" {:url "https://repo.clojars.org/"}
-  ;; }
-}
+ ;; :mvn/repos {
+ ;;   "central" {:url "https://repo1.maven.org/maven2/"}
+ ;;   "clojars" {:url "https://repo.clojars.org/"}
+ ;; }
+ }

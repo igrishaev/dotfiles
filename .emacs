@@ -625,9 +625,11 @@
  ;; If there is more than one, they won't work right.
  '(markdown-command "pandoc")
  '(package-selected-packages
-   '(ob-graphql ob-http org-sql restclient git-link helm slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete))
+   '(terraform-mode ob-graphql ob-http org-sql restclient git-link helm slime ido-vertical-mode dockerfile-mode 0blayout highlight gist groovy-mode yaml-mode wrap-region projectile paredit markdown-mode magit json-mode jinja2-mode expand-region dedicated cider auto-complete))
  '(safe-local-variable-values
-   '((eval put-clojure-indent 'fixtures/bind-system 1)
+   '((eval put-clojure-indent 'thrown-with-msg\? 2)
+     (eval put-clojure-indent 'match 1)
+     (eval put-clojure-indent 'fixtures/bind-system 1)
      (eval put-clojure-indent 't/skip 1)
      (eval put-clojure-indent 'skip 1)
      (eval put-clojure-indent 't/with-system 1)
