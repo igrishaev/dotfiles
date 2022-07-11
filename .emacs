@@ -368,7 +368,19 @@
   (interactive)
   (insert "#bogus"))
 
+
+(defun cider-repl-prompt-newline (namespace)
+  "Return a prompt string that mentions NAMESPACE with a newline."
+  (format "%s\n> " namespace)))
+
 (global-set-key (kbd "C-c b") 'bogus)
+
+(setq cider-repl-prompt-function #'cider-repl-prompt-newline)
+(setq cider-save-file-on-load nil)
+(setq cider-auto-select-error-buffer t)
+(setq cider-show-eval-spinner t)
+(setq cider-use-tooltips nil)
+
 
 ;; (add-hook 'clojure-mode-hook (lambda () (parinfer-rust-mode 1)))
 

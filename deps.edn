@@ -25,6 +25,7 @@
    {nrepl/nrepl {:mvn/version "0.9.0"}
     cider/cider-nrepl {:mvn/version "0.28.3"}}
    :main-opts ["-m" "nrepl.cmdline"
+               "-i"
                "--middleware" "[cider.nrepl/cider-middleware]"]}}
 
  ;; :paths ["/Users/ivan/.clojure/src"]

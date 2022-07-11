@@ -100,6 +100,8 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias git-trigger="git commit --allow-empty -m 'trigger release'"
+
 alias etags="/Applications/Emacs\ 2.app/Contents/MacOS/bin/etags"
 
 # alias play="/Applications/VLC.app/Contents/MacOS/VLC -v "
