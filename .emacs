@@ -371,7 +371,7 @@
 
 (defun cider-repl-prompt-newline (namespace)
   "Return a prompt string that mentions NAMESPACE with a newline."
-  (format "%s\n> " namespace)))
+  (format "%s\n> " namespace))
 
 (global-set-key (kbd "C-c b") 'bogus)
 
@@ -641,6 +641,7 @@
  '(safe-local-variable-values
    '((eval put-clojure-indent 'thrown-with-msg\? 2)
      (eval put-clojure-indent 'match 1)
+     (eval put-clojure-indent 'thrown-with-msg? 0)
      (eval put-clojure-indent 'fixtures/bind-system 1)
      (eval put-clojure-indent 't/skip 1)
      (eval put-clojure-indent 'skip 1)
