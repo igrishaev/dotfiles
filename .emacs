@@ -364,6 +364,16 @@
 ;; clojure
 
 
+(put-clojure-indent 'throw-busy 1)
+(put-clojure-indent 'throw-fault 1)
+(put-clojure-indent 'throw-unsupported 1)
+(put-clojure-indent 'throw-incorrect 1)
+(put-clojure-indent 'throw-forbidden 1)
+(put-clojure-indent 'throw-not-found 1)
+(put-clojure-indent 'throw-conflict 1)
+(put-clojure-indent 'throw-busy 1)
+
+
 (defun bogus ()
   (interactive)
   (insert "#bogus"))
@@ -539,6 +549,10 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; org-mode
+
+(org-babel-do-load-languages 'org-babel-load-languages
+  '((shell . t)))
+
 (setq system-time-locale "C")
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-agenda-skip-scheduled-if-done t)
@@ -576,6 +590,7 @@
 ;; misc
 (setq grep-save-buffers nil)
 (global-set-key (kbd "M-o") #'browse-url-at-point)
+(add-to-list 'auto-mode-alist '("\\.service\\'" . conf-mode))
 
 ;; custom keys
 (define-key input-decode-map "\C-m" [C-m])

@@ -183,6 +183,8 @@ function git_clean(){
     git clean -df
 }
 
+alias timestamp='date -r $1'
+
 
 #
 # Exoscale
