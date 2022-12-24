@@ -161,8 +161,8 @@ function whoseport(){
     lsof -i 4tcp:$1 -sTCP:LISTEN
 }
 
-function gen_pass(){
-    pwgen -N 1 -cn 20
+function genpass(){
+    pwgen -N 1 -cn 16
 }
 
 function del_orig(){
@@ -177,7 +177,6 @@ function emacs_wakeup(){
 function emacs_term(){
     pkill -SIGTERM Emacs
 }
-
 
 function git_clean(){
     git clean -df
