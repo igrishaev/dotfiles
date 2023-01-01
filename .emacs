@@ -379,11 +379,17 @@
   (insert "#bogus"))
 
 
+(defun footurl ()
+  (interactive)
+  (insert "\\footurl{}{}[]"))
+
+
 (defun cider-repl-prompt-newline (namespace)
   "Return a prompt string that mentions NAMESPACE with a newline."
   (format "%s\n> " namespace))
 
 (global-set-key (kbd "C-c b") 'bogus)
+(global-set-key (kbd "C-c f") 'footurl)
 
 (setq cider-repl-prompt-function #'cider-repl-prompt-newline)
 (setq cider-save-file-on-load nil)
