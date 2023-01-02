@@ -417,6 +417,9 @@
 (add-hook 'cider-mode-hook #'wrap-region-mode)
 (wrap-region-add-wrapper "(clojure.inspector/inspect-tree " ")" "i" 'clojure-mode)
 
+;; latex
+(wrap-region-add-wrapper "\\def\\url{" "}" "d" 'latex-mode)
+
 ;; clojurescript mode
 (add-hook 'clojurescript-mode #'paredit-mode)
 
